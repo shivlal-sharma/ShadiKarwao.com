@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('images/blue3.webp') no-repeat center center/cover;
+}
+
+form h2{
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+form{
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    background: url('images/white4.avif') no-repeat center center/cover;
+}
+
+.input{
+    position: relative;
+    margin-bottom: 7px;
+}
+
+.input i{
+    position: absolute;
+    right:7px;
+    top: 31px;
+}
+
+.input p{
+    color: #ff0000;
+    margin-top: 3px;
+}
+
+div label{
+    display: block;
+    margin-bottom: 2px;
+    font-size:1.1rem;
+}
+
+input{
+    width: 100%;
+    padding: 5px 30px 5px 5px;
+    box-sizing: border-box;
+    font-size:1rem;
+}
+
+input[type="file"]{
+    padding: 5px 30px 5px 5px;
+    background: #fff;
+    border: 0.5px solid #7b7b7b;
+    border-radius: 3px;
+}
+
+input[type="file"]:hover{
+    cursor: pointer;
+}
+
+textarea{
+    font-size: 1rem;
+    height: 50px;
+    padding: 5px 30px 5px 5px;
+    width: 100%;
+    resize: none;
+}
+
+img{
+    margin-top: 3px;
+    height: 100px;
+    width: 100px;
+    border-radius: 3px;
+}
+
+#btn{
+    width: 100%;
+    background: url('images/dgreen.avif') no-repeat center center/cover;
+    color: white;
+    padding: 7px 0px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    
+}
+
+#btn:hover{
+    cursor: pointer;
+}
+
+#btn1{
+    outline: none;
+    font-size:1rem;
+    margin-top: 10px;
+    padding: 2px 0px;
+    border: 0.5px solid #7b7b7b;
+    background: url('images/white10.avif') no-repeat center center/cover;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+#btn1 a{
+    padding: 2px 7px;
+    text-decoration: none;
+}
+
+#btn1:hover{
+    cursor: pointer;
+}

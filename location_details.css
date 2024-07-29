@@ -1,0 +1,126 @@
+#container {
+    margin-top: 41px;
+    padding: 10px;
+    height: 87.7vh;
+    background: url('images/blue0.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(8,170px);
+    grid-template-rows: repeat(3,352px);
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 170px;
+    height: 352px;
+    background: url('images/white10.avif') no-repeat center center/cover;
+}
+
+.box img {
+    height: 160px;
+    width: 160px;
+}
+
+.box .name {
+    color: #1900ff;
+    padding: 2px 3px;
+}
+
+.box .name2{
+    margin-top: 11px;
+}
+
+input[type="date"]{
+    outline: none;
+    padding-left: 3px;
+    background: transparent;
+    border: 0.5px solid #0000ff;
+    box-shadow: 0px 0px 3px #ff00d0;
+    margin: 3px 0px;
+    border-radius: 3px;
+}
+
+input[type="date"]:hover{
+    cursor: pointer;
+}
+
+#detail{
+    outline: none;
+    padding: 2px 7px;
+    cursor: pointer;
+    border: 0.5px solid #0000ff;
+    box-shadow: 0px 0px 3px #ff00d0;
+    border-radius: 3px;
+    background: transparent;
+    margin: 3px 0px;
+}
+
+#detail a{
+    text-decoration: none;
+    color: #0000ff;
+}
+
+@media screen and (max-width:1400px) {
+    #container{
+        grid-template-columns: repeat(7,170px);
+    }
+}
+
+@media screen and (max-width:1300px) {
+    #container{
+        grid-template-columns: repeat(6,170px);
+    }
+}
+@media screen and (max-width:1200px) {
+    #container{
+        height: 109vh;
+        grid-template-columns: repeat(5,170px);
+        grid-template-rows: repeat(2,355px);
+    }
+}
+@media screen and (max-width:1000px) {
+    #container{
+        grid-template-columns: repeat(4,170px);
+    }
+}
+
+@media screen and (max-width:800px) {
+    #container{
+        grid-template-columns: repeat(3,170px);
+    }
+}
+@media screen and (max-width:600px) {
+    #container{
+        height: 163vh;
+        grid-template-columns: repeat(2,170px);
+        grid-template-rows: repeat(3,355px);
+    }
+}
+
+@media screen and (max-width:410px) {
+    #container{
+        height: 141vh;
+        grid-template-columns: repeat(2,140px);
+        grid-template-rows: repeat(3,305px);
+        grid-column-gap: 10px;
+        grid-row-gap: 35px;
+    }
+
+    .box{
+        font-size: 0.78rem;
+        height: 307px;
+        width: 140px;
+    }
+
+    .box img{
+        height: 130px;
+        width: 130px;
+    }
+}

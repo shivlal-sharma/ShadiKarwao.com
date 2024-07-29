@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97.5vh;
+    background: url('images/blue7.avif') no-repeat center center/cover;
+}
+
+form {
+    width: 300px;
+    padding: 20px 15px;
+    border-radius: 5px;
+    background: url('images/white7.webp') no-repeat center center/cover;
+}
+
+form h2{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input i{
+    position: absolute;
+    top: 33px;
+    right: 10px;;
+}
+
+input {
+    width: 100%;
+    padding: 8px 30px 8px 8px;
+    box-sizing: border-box;
+}
+
+.input p{
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px 30px 8px 8px;
+    box-sizing: border-box;
+}
+
+#field3 input{
+    background: url('images/green3.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#field3 input:hover{
+    cursor: pointer;
+}
+
+#center{
+    text-align: center;
+}
+
+#center a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0px 10px;
+}
+
+#center a:hover{
+    cursor: pointer;
+}

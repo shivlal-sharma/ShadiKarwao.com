@@ -1,0 +1,90 @@
+#container{
+    margin-top: 41px;
+    background: url('images/pink1.avif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    height: 87.7vh;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(9,150px);
+    grid-template-rows: repeat(3,160px);
+    grid-gap: 10px;
+}
+
+#social-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+#social-media li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+#social-media li img {
+    height:20px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+#social-media li a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    width: 100%;
+    padding: 2px 5px;
+}
+
+#social-media li #anchor {
+    color: #007a0a;
+}
+
+#social-media li #anchor:hover{
+    cursor: pointer;
+    color: #800080;
+}
+
+@media screen and (max-width:1400px) {
+    #container{
+        grid-template-columns: repeat(8,150px);
+    }
+}
+
+@media screen and (max-width:1300px) {
+    #container{
+        grid-template-columns: repeat(7,150px);
+    }
+}
+
+@media screen and (max-width:1130px) {
+    #container{
+        grid-template-columns: repeat(6,150px);
+    }
+}
+
+@media screen and (max-width:975px) {
+    #container{
+        grid-template-columns: repeat(5,150px);
+    }
+}
+
+@media screen and (max-width:800px) {
+    #container{
+        grid-template-columns: repeat(4,150px);
+    }
+}
+
+@media screen and (max-width:650px) {
+    #container{
+        grid-template-columns: repeat(3,150px);
+    }
+}
+
+@media screen and (max-width:500px) {
+    #container{
+        grid-template-columns: repeat(2,150px);
+    }
+}

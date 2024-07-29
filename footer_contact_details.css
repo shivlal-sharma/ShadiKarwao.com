@@ -1,0 +1,74 @@
+#container{
+    margin-top: 41px;
+    background: url('images/pink1.avif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    height: 87.7vh;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4,300px);
+    grid-template-rows: repeat(2,190px);
+    grid-gap: 10px;
+}
+
+#contact {
+    border: 2px solid rgb(0, 238, 255);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 5px;
+}
+
+#contact label {
+    color: #ff0000;
+}
+
+#contact label:hover {
+    color: #0000ff;
+}
+
+#contact .div {
+    border: 2px solid rgb(0, 255, 145);
+    border-radius: 3px;
+    color: rgb(54, 0, 115);
+    margin: 5px 0px;
+    padding: 0px 3px;
+}
+
+#contact .div div:hover {
+    color: #0000ff;
+}
+
+#date{
+    text-align: center;
+}
+
+#update{
+    width: 30%;
+    margin: 3px auto;
+}
+
+#delete{
+    width: 30%;
+    margin: 3px auto;
+}
+
+@media screen  and (max-width:1250px) {
+    #container{
+        grid-template-columns: repeat(3,300px);
+    }
+}
+
+@media screen  and (max-width:950px) {
+    #container{
+        grid-template-columns: repeat(2,300px);
+    }
+}
+
+@media screen  and (max-width:625px) {
+    #container{
+        height: 102vh;
+        grid-template-columns: repeat(1,280px);
+    }
+}

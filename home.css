@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height: 100vh;
+    background: url('images/wedding.jpg') no-repeat center center/cover;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+
+#box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 94vw;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 1px 1px #ff0000;
+    backdrop-filter: blur(1.5px);
+}
+
+section #box #para{
+    color: #ffffff;
+}
+
+section #box #heading{
+    color: #eeff00;
+}
+
+section #box #ask{
+    color: #effc00;
+}
+
+section #box #anchor{
+    display: flex;
+    color: #ffffff;
+}
+
+section #box p a{
+    color: #00fff7;
+    padding: 0px 5px;
+    text-decoration: none;
+}
+
+@media screen and (max-width:750px) {
+    #box{
+        font-size: 20px;
+    }
+}

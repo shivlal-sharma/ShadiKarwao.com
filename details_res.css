@@ -1,0 +1,41 @@
+#box{
+    grid-template-columns: repeat(3,auto);
+}
+
+@media screen and (max-width:950px) {
+    #box{
+        grid-template-columns: repeat(2,auto);
+    }
+}
+
+@media screen and (max-width:650px) {
+    #box{
+        grid-template-columns: repeat(2,auto);
+    }
+
+    #details{
+        width: 200px;
+        height: 222px;
+    }
+
+    #details img{
+        height: 190px;
+        width: 190px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    #box{
+        grid-template-columns: repeat(2,auto);
+    }
+
+    #details{
+        width: 135px;
+        height: 160px;
+    }
+
+    #details img{
+        height: 130px;
+        width: 130px;
+    }
+}

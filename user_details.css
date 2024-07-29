@@ -1,0 +1,21 @@
+body{
+    height: 100vh;
+    background: url('images/pink1.avif') no-repeat center center/cover;
+}
+
+#table{
+    margin: 50px 0.5px 0.5px 0.5px;
+    display: flex;
+    justify-content: center;
+}
+
+#table th{
+    text-align: center;
+    color: rgb(3, 0, 185);
+}
+
+#table td{
+    padding: 5px 2.5px;
+    text-align: center;
+    color: rgb(141, 37, 31);
+}

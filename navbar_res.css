@@ -1,0 +1,16 @@
+.spinner{
+    display: block;
+}
+
+#header #img img{
+    display: none;
+}
+
+#logoname{
+    width: 100%;
+    text-align: center;
+}
+
+#mylink{
+    display: none;
+}

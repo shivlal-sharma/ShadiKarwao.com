@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background: url('images/lblack.avif') no-repeat center center/cover;
+    position: fixed;
+    z-index: 3;
+}
+
+#header #img img{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin: 0px 17px;
+}
+
+#mylink{
+    display: flex;
+}
+
+#mylink li{
+    list-style: none;
+    margin: 0px 20px;
+}
+
+#mylink li a{
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+#wish{
+    color: #f00;
+}
+
+#sidebarIconToggle{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+    position: fixed;
+}
+
+#openSidebarMenu:checked ~ #sidebarMenu{
+    transform: translateX(0px);
+}
+
+#sidebarMenu{
+    height: 100%;
+    width:250px;
+    background: url('images/blue7.avif') no-repeat center center/cover;
+    position: fixed;
+    top: 0;
+    left:0;
+    margin-top: 60px;
+    transform: translateX(-250px);
+    transition: transform 0.3s ease-in-out;
+    z-index: 5;
+}
+/* 
+#sidebarMenu #img img{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin: 10px 0px -10px 15px;
+} */
+
+.menu li{
+    list-style: none;
+    margin: 4px 15px;
+}
+
+.menu li a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+.spinner{
+    width: 100%;
+    border: 2px solid #fff;
+    transition: all 0.3s;
+    display: none;
+}
+
+.spinner.middle,
+.spinner.bottom{
+    margin-top: 4px;
+}
+
+#openSidebarMenu:checked ~ #sidebarIconToggle  .spinner.middle{
+    opacity: 0;
+}
+#openSidebarMenu:checked ~ #sidebarIconToggle  .spinner.top{
+    transform: rotate(135deg);
+    margin-top: 9px;
+}
+#openSidebarMenu:checked ~ #sidebarIconToggle  .spinner.bottom{
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+@media screen and (max-width:1550px) {
+    .spinner{
+        display: block;
+    }
+
+    #header{
+        justify-content: center;
+    }
+    
+    #mylink{
+        display: none;
+    }
+}

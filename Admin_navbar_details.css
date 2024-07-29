@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+#add{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#submit{
+    display: block;
+    width: 110px;
+    margin: 3px;
+    padding: 2px 5px;
+    outline: none;
+    cursor: pointer;
+    background: url('images/green2.avif') no-repeat center center/cover;
+    color: #fff;
+    /* border: 1px solid #0f0; */
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+}
+
+#submit1{
+    display: block;
+    width: 150px;
+    margin: 3px;
+    padding: 3px 7px;
+    outline: none;
+    cursor: pointer;
+    background: url('images/blue1.jpg') no-repeat center center/cover;
+    color: #fff;
+    /* border: 1px solid #00f; */
+    text-decoration: none;
+    text-align: center;
+}
+
+#add #submit i{
+    position: absolute;
+    top: 3.5px;
+    left:5px;
+}
+
+#submit2{
+    display: block;
+    width: 110px;
+    margin: 3px;
+    padding: 2px 5px;
+    outline: none;
+    cursor: pointer;
+    background: url('images/green2.avif') no-repeat center center/cover;
+    color: #fff;
+    /* border: 1px solid #0f0; */
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    border-radius: 3px;
+}
+
+#add #submit2 i{
+    position: absolute;
+    top: 4px;
+    right: 5px;
+}
+
+nav{
+    background: url('images/orange3.avif') no-repeat center center/cover;
+    position: relative;
+    position: sticky;
+    top: 60px;
+}
+
+#update{
+    outline: none;
+    padding: 2px 7px;
+    cursor: pointer;
+    border: 0.5px solid #0000ff;
+    box-shadow: 0px 0px 3px rgb(255, 0, 208);
+    border-radius: 3px;
+    font-size: 1.1rem;
+    background: transparent;
+    margin: 3px 0px;
+}
+
+#delete{
+    outline: none;
+    padding: 2px 7px;
+    cursor: pointer;
+    border: 0.5px solid #0000ff;
+    box-shadow: 0px 0px 3px rgb(255, 44, 192);
+    border-radius: 3px;
+    font-size: 1.1rem;
+    background: transparent;
+    margin: 3px 0px;
+}
+
+#update a{
+    text-decoration: none;
+    color: #0000ff;
+}
+
+#delete a{
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
+
+@media screen and (max-width:390px) {
+    #submit{
+        padding: 2px 0px;
+        width: 124px;
+    }
+
+    #submit1{
+        padding: 2px 0px;
+        width: 120px;
+    }
+
+    #submit2{
+        padding: 2px 0px;
+        width: 115px;
+    }
+}
