@@ -8,16 +8,15 @@
         $result = mysqli_query($con, $deletesql);
         if($result){ ?>
             <script>
-                alert('Admin Deleted Successfully...');
+                alert('Admin deleted successfully!');
                 location.replace('admin_details.php');
             </script>
         <?php }
         else{ ?>
             <script>
-                alert('Admin Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('admin_details.php');
             </script>
         <?php }
     }
-
 ?>

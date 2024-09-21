@@ -11,14 +11,14 @@
         $name = $_POST['name'];
         $location_img = $_FILES['location_img']['name'];
         $location_tmp_name = $_FILES['location_img']['tmp_name'];
-        $location_folder = 'details_img/'.$location_img;
+        $location_folder = "details_img/$location_img";
 
         $checkquery = "SELECT * FROM `details3` WHERE `Image`='$location_img' && `Name`='$name'";
         $result = mysqli_query($con, $checkquery);
         $num_rows = mysqli_num_rows($result);
         if($num_rows > 0){ ?>
             <script>
-                alert('Already Exists, \nPlease Enter another Details...');
+                alert('Details already exists...');
                 location.replace('details_details3.php');
             </script>
        <?php }
@@ -28,21 +28,18 @@
             if($result){
                 move_uploaded_file($location_tmp_name, $location_folder); ?>
                 <script>
-                    alert('Details has been Updated Successfully...');
+                    alert('Details has updated successfully!');
                     location.replace('details_details3.php');
                 </script>
            <?php }
             else{ ?>
                 <script>
-                    alert('Details Not Updated...');
+                    alert('Something went wrong...');
                 </script>
            <?php }
         }
     }
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +47,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Details</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
 <body>
     <?php
@@ -60,21 +57,20 @@
         if($query){
             while($row = mysqli_fetch_assoc($query)){ ?>
                 <section id="container">
-                    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" onsubmit="return validate()" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
                         <h2>Update Details</h2>
                         <div class="input">
                             <label for="location_img">Image</label>
-                            <input type="file" id="location_img" accept="image/png, image/jpg, image/jpeg, image/webp" name="location_img" autofocus autocomplete="off" required>
+                            <input type="file" id="location_img" accept="image/*" name="location_img" autofocus autocomplete="off" required>
                             <img src="details_img/<?php echo $row['Image'] ?>" alt="Location Image" height="120">
                         </div>
                         <div class="input">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" value="<?php echo $row['Name'] ?>" onkeyup="check(this.value)" autofocus autocomplete="off" required>
-                            <p class="error"></p>
                         </div>
                         <input type="hidden" name="Sr_No" value="<?php echo $row['Sr_No'] ?>">
-                        <div class="input">
-                            <button type="submit" name="submit" id="btn">Update</button>
+                        <div class="input" id="field-submit">
+                            <button type="submit" name="submit" id="btn">Update Details</button>
                         </div>
                         <div class="input">
                             <button type="submit" id="btn1"><a href="details_details3.php">Go Back</a></button>
@@ -84,8 +80,5 @@
            <?php }
         }
     ?>
-
-        <script src="add_location.js?v=5"></script>
-
 </body>
 </html>

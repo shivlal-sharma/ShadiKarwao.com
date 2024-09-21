@@ -7,13 +7,13 @@
         $result = mysqli_query($con, $deletequery);
         if($result){ ?>
            <script>
-                alert('Details has been Deleted Successfully...');
+                alert('Details has deleted successfully!');
                 location.replace('details_details2.php');
            </script>
        <?php }
         else{ ?>
             <script>
-                alert('Details Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('details_details2.php');
             </script>
        <?php }

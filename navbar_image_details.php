@@ -16,8 +16,8 @@
             border:2px solid blue;
         }
     </style>
-    <link rel="stylesheet" href="admin_navbar_details.css?v=4">
-    <link rel="stylesheet" href="footer_menu_details.css?v=8">
+    <link rel="stylesheet" href="admin_navbar_details.css">
+    <link rel="stylesheet" href="footer_menu_details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
     ?>
     <nav>
         <div id="add">
-            <a href="dashboard.php" id="submit"><i class="fa-solid fa-backward"></i>&nbsp;&nbsp;&nbsp;&nbsp; Backward</a>
+            <a href="admin_details.php" id="submit"><i class="fa-solid fa-backward"></i>&nbsp;&nbsp;&nbsp;&nbsp; Backward</a>
             <a href="navbar_image_add.php" id="submit1">Add Navbar</a>
             <a href="navbar_details.php" id="submit2">Forward &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-forward"></i></a>
         </div>

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome! <?php if(isset($_SESSION['fullName'])){ echo $_SESSION['fullName']; } ?></title>
-    <link rel="stylesheet" href="home.css?v=14">
+    <link rel="stylesheet" href="home.css">
     <style>
         @media screen and (max-width:396px) {
             #box{

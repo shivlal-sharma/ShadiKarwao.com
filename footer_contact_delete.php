@@ -1,9 +1,6 @@
 <?php
-
     session_start();
-
     include 'connect.php';
-
     if(isset($_GET['delete'])){
         $id = $_GET['delete'];
 
@@ -11,16 +8,15 @@
         $result = mysqli_query($con, $deletequery);
         if($result){ ?>
            <script>
-                alert('MyContact has been Deleted Successfully...');
+                alert('MyContact has deleted successfully!');
                 location.replace('footer_contact_details.php');
            </script>
        <?php }
         else{ ?>
             <script>
-                alert('MyContact Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('footer_contact_details.php');
             </script>
        <?php }
     }
-
 ?>

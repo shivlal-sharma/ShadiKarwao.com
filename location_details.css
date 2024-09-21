@@ -1,15 +1,12 @@
 #container {
-    margin-top: 41px;
+    margin-top: 90px;
     padding: 10px;
-    height: 87.7vh;
-    background: url('images/blue0.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(8,170px);
-    grid-template-rows: repeat(3,352px);
     grid-column-gap: 20px;
-    grid-row-gap: 40px;
+    grid-row-gap: 20px;
 }
 
 .box {
@@ -20,7 +17,7 @@
     text-align: center;
     width: 170px;
     height: 352px;
-    background: url('images/white10.avif') no-repeat center center/cover;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
 .box img {
@@ -56,7 +53,6 @@ input[type="date"]:hover{
     padding: 2px 7px;
     cursor: pointer;
     border: 0.5px solid #0000ff;
-    box-shadow: 0px 0px 3px #ff00d0;
     border-radius: 3px;
     background: transparent;
     margin: 3px 0px;
@@ -80,7 +76,6 @@ input[type="date"]:hover{
 }
 @media screen and (max-width:1200px) {
     #container{
-        height: 109vh;
         grid-template-columns: repeat(5,170px);
         grid-template-rows: repeat(2,355px);
     }
@@ -98,7 +93,6 @@ input[type="date"]:hover{
 }
 @media screen and (max-width:600px) {
     #container{
-        height: 163vh;
         grid-template-columns: repeat(2,170px);
         grid-template-rows: repeat(3,355px);
     }
@@ -106,7 +100,6 @@ input[type="date"]:hover{
 
 @media screen and (max-width:410px) {
     #container{
-        height: 141vh;
         grid-template-columns: repeat(2,140px);
         grid-template-rows: repeat(3,305px);
         grid-column-gap: 10px;

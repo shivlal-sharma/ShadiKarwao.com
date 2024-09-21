@@ -12,16 +12,15 @@
         $result = mysqli_query($con, $deletequery);
         if($result){ ?>
            <script>
-                alert('Location Deleted Successfully...');
+                alert('Location deleted successfully!');
                 location.replace('location_details.php');
            </script>
        <?php }
         else{ ?>
             <script>
-                alert('Location Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('location_details.php');
             </script>
        <?php }
     }
-
 ?>

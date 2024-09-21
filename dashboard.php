@@ -12,32 +12,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome! <?php echo $_SESSION['FullName']; ?></title>
-    <link rel="stylesheet" href="dashboard.css?v=1">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <?php
-        include 'dash_navbar.php';
-    ?>
+    <?php include 'dash_navbar.php'; ?>
 
     <div class="box">
         <div class="info">
-            <div class="about">User</div>
-            <div class="count">
-                <?php 
-                    $users = "SELECT COUNT(*) as total FROM `registration1` WHERE `Status`='active'";
-                    $query = mysqli_query($con,$users);
-                    if(mysqli_num_rows($query)>0){
-                        $row = mysqli_fetch_assoc($query);
-                        echo  $count = $row['total'];
-                    }
-                    else{
-                        echo $count = 0;
-                    }
-                ?>
-            </div>
-        </div>
-        <div class="info">
-            <div class="about">Location</div>
+            <div class="about">Locations</div>
             <div class="count">
                 <?php 
                     $users = "SELECT COUNT(*) as total FROM `location001`";
@@ -53,10 +35,10 @@
             </div>
         </div>
         <div class="info">
-            <div class="about">Contact</div>
+            <div class="about">Wishlists <i class="fa-sharp fa-solid fa-heart" style="color:red;"></i></div>
             <div class="count">
                 <?php 
-                    $users = "SELECT COUNT(*) as total FROM `contact363`";
+                    $users = "SELECT COUNT(*) as total FROM `wishlist30`";
                     $query = mysqli_query($con,$users);
                     if(mysqli_num_rows($query)>0){
                         $row = mysqli_fetch_assoc($query);
@@ -69,7 +51,7 @@
             </div>
         </div>
         <div class="info">
-            <div class="about">Booking</div>
+            <div class="about">Bookings</div>
             <div class="count">
                 <?php 
                     $users = "SELECT COUNT(*) as total FROM `payment300`";
@@ -85,7 +67,39 @@
             </div>
         </div>
         <div class="info">
-            <div class="about">Admin</div>
+            <div class="about">Contacts</div>
+            <div class="count">
+                <?php 
+                    $users = "SELECT COUNT(*) as total FROM `contact363`";
+                    $query = mysqli_query($con,$users);
+                    if(mysqli_num_rows($query)>0){
+                        $row = mysqli_fetch_assoc($query);
+                        echo $count = $row['total'];
+                    }
+                    else{
+                        echo $count = 0;
+                    }
+                ?>
+            </div>
+        </div>
+        <div class="info">
+            <div class="about">Users</div>
+            <div class="count">
+                <?php 
+                    $users = "SELECT COUNT(*) as total FROM `registration1` WHERE `Status`='active'";
+                    $query = mysqli_query($con,$users);
+                    if(mysqli_num_rows($query)>0){
+                        $row = mysqli_fetch_assoc($query);
+                        echo  $count = $row['total'];
+                    }
+                    else{
+                        echo $count = 0;
+                    }
+                ?>
+            </div>
+        </div>
+        <div class="info">
+            <div class="about">Admins</div>
             <div class="count">
                 <?php 
                     $users = "SELECT COUNT(*) as total FROM `admin003`";
@@ -101,7 +115,7 @@
             </div>
         </div>
         <div class="info">
-            <div class="about">Team</div>
+            <div class="about">Teams</div>
             <div class="count">
                 <?php 
                     $users = "SELECT COUNT(*) as total FROM `teammngr03`";
@@ -115,9 +129,6 @@
                     }
                 ?>
             </div>
-        </div>
-        <?php if(isset($_SESSION['FullName'])){ ?>
-            <div id="logout"><a href="admin_logout.php">Logout</a></div>
-        <?php } ?>  
+        </div>  
 </body>
 </html>

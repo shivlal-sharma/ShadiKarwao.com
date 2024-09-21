@@ -7,16 +7,15 @@
         $result = mysqli_query($con, $deletesql);
         if($result){ ?>
             <script>
-                alert('Image has been Deleted Successfully...');
+                alert('Logo has deleted successfully!');
                 location.replace('navbar_image_details.php');
             </script>
         <?php }
         else{ ?>
             <script>
-                alert('Image Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('navbar_image_details.php');
             </script>
         <?php }
     }
-
 ?>

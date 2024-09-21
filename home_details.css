@@ -1,13 +1,10 @@
 #container{
-    margin-top: 40px;
-    height: 87.8vh;
+    margin-top: 90px;
     padding: 10px;
-    background: url('images/pink1.avif') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(7,187px);
-    grid-template-rows: repeat(4,180px);
     grid-gap: 10px;
 }
 

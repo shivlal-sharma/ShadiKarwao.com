@@ -1,25 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 #container {
-    height: 100%;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url('images/blue0.jpg') no-repeat center center/cover;
 }
 
 #box{
-    margin-top: 50px;
+    width: 1140px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(4,auto);
+    flex-wrap: wrap;
+    margin: 0px auto;
+    padding: 10px;
 }
 
 #details {
@@ -27,20 +18,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 260px;
-    height: 281px;
-    background: url('images/white8.avif') no-repeat center center/cover;
-    margin: 10px;
+    margin: 15px;
 }
 
 #details img {
-    width: 245px;
-    height: 245px;
-    margin: 0px 10px;
+    width: 250px;
+    height: 250px;
+    object-fit: fill;
 }
 
 #details p {
-    margin-top: 5px;
+    margin-block: 5px;
+}
+
+#details:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
 }
 
 #content{
@@ -52,11 +45,10 @@
 
 #content p{
     padding: 5px 10px;
-    /* border: 1px solid #ccc; */
     color: #fff;
     text-align: center;
-    margin: 3px;
-    background: url('images/purple2.avif') no-repeat center center/cover;
+    margin-block: 3px;
+    background-color: #8c0b91;
 }
 
 #content button{
@@ -64,7 +56,7 @@
     width: 100px;
     margin-top: 3px;
     margin-bottom: 10px;
-    background: url('images/pink2.avif') no-repeat center center/cover;
+    background-color: #148000;
 }
 
 #content button a{
@@ -74,4 +66,49 @@
     font-weight: bold;
     font-size: 1rem;
     color: #fff;
+}
+
+@media (max-width:1180px){
+    #box{
+        width: 860px;
+    }
+}
+
+@media (max-width:880px){
+    #box{
+        width: 710px;
+    }
+    #details img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width:730px){
+    #box{
+        width: 560px;
+    }
+    #details img{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width:580px){
+    #box{
+        width: 380px;
+    }
+}
+
+@media (max-width:400px){
+    #box{
+        width: 300px;
+    }
+    #details{
+        margin: 10px;
+    }
+    #details img{
+        width: 120px;
+        height: 120px;
+    }
 }

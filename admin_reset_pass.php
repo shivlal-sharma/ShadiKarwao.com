@@ -13,22 +13,19 @@
                 $query = mysqli_query($con, $updatequery);
                 if($query){ ?>
                     <script>
-                        alert("Your password has been updated...");
+                        alert("Password has changed successfully!");
                         location.replace('login_admin.php');
                     </script>
                 <?php }
-                else{ ?>
-                    <script>
-                        alert("Your password is not updated...");
-                        location.replace('admin_reset_pass.php');
-                    </script>
-                <?php }
+                else{ 
+                    echo "<script>alert('Something went wrong...');</script>";
+                    echo "<script>location.replace('admin_reset_pass.php?token=$token');</script>";
+                }
             }
-            else{ ?>
-                <script>
-                    alert("Please, Enter the correct Password...");
-                </script>
-            <?php }
+            else{ 
+                echo "<script>alert('Incorrect confirm password...');</script>";
+                echo "<script>location.replace('admin_reset_pass.php?token=$token');</script>";
+            }
         }
     }
 
@@ -41,7 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="reset_pass.css?v=8">
+    <link rel="stylesheet" href="sign_up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -54,23 +51,23 @@
             <h2>Reset Password</h2>
             <div class="input" id="field1">
                 <label for="newpassword">New Password</label>
-                <input type="password" name="newpassword" id="newpassword" onkeyup="check(this.value)" autofocus autocomplete="off" required>
+                <input type="password" name="newpassword" id="password" onkeyup="check1(this.value)" autofocus autocomplete="off" required>
                 <i class="fa-solid fa-eye-slash" id="eyeClose" onclick="toggle()"></i>
                 <p class="error"></p>
             </div>
             <div class="input" id="field2">
                 <label for="cpassword">Confirm Password</label>
-                <input type="password" name="cpassword" id="cpassword" onkeyup="check1(this.value)" autofocus autocomplete="off" required>
+                <input type="password" name="cpassword" id="cpassword" onkeyup="check2(this.value)" autofocus autocomplete="off" required>
                 <p class="error"></p>
             </div>
-            <div class="input" id="field3">
-                <input type="submit" name='submit' id='submit' value="Reset Password">
+            <div class="input" id="field6">
+                <button type="submit" name='submit' id='btn'>Reset Password</button>
             </div>
-            <div id="center">Not an admin ? <a href="sign_up.php">Sign Up</a></div>
+            <div id="para">Are you admin ? <a href="login_admin.php">Login</a></div>
         </form>
     </section>
 
-    <script src="reset_pass.js?v=3"></script>
+    <script src="sign_up.js"></script>
 
 </body>
 </html>

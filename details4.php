@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(isset($_GET['no'])){
+        $_SESSION['location_id'] = $_GET['no'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -7,9 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
-    <link rel="stylesheet" href="details.css?v=1">
-    <link rel="stylesheet" media="screen and (max-width:1050px)" href="details_res.css?v=1">
+    <title>Location Details</title>
+    <link rel="stylesheet" href="details.css">
 </head>
 <body>
     <?php

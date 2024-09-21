@@ -1,28 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-
-body{
-    height: 100vh;
-}
-
 #container{
-    height: 97.5vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: url('images/blue2.webp') no-repeat center center/cover;
+    margin-top: 60px;
 }
 
-span{
-    position: absolute;
-    top: -80px;
-    width: 420px;
-    margin-inline: auto;
+#error,#success{
+    width: 280px;
+    margin-top: 20px;
     padding: 5px 10px;
     color: #fff;
     font-size: 1.1rem;
@@ -35,7 +20,7 @@ span{
 
 b{
     position: absolute;
-    top: 1px;
+    top: 0px;
     right: 10px;
     font-size: 1.7rem;
     color: #00ffdd;
@@ -51,11 +36,12 @@ b{
 }
 
 form{
-    width: 300px;
-    padding: 20px 20px;
+    width: 280px;
+    margin-top: 20px;
+    padding: 20px;
     border-radius: 5px;
-    background: #fff;
-    background: url('images/white.jpeg') no-repeat center center/cover;
+    background-color: #f5f1f1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0,0.5);
 }
 
 form h2{
@@ -68,15 +54,16 @@ div label{
     margin-bottom: 2px;
 }
 
-.input .fa-solid{
-    position: absolute;
-    right:7px;
-    top: 28px;
-}
-
 .input{
     margin-bottom: 5px ;
     position: relative;
+}
+
+.input .fa-solid{
+    position: absolute;
+    right:7px;
+    top: 27px;
+    cursor: pointer;
 }
 
 .input p{
@@ -86,8 +73,21 @@ div label{
 
 input{
     width: 100%;
+    padding: 5px;
+    outline: none;
+}
+
+input[type="password"]{
     padding: 5px 40px 5px 5px;
-    box-sizing: border-box;
+}
+
+.forget{
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.forget a{
+    text-decoration: none;
 }
 
 textarea{
@@ -96,14 +96,15 @@ textarea{
     padding: 5px 30px 5px 5px;
     width: 100%;
     resize: none;
+    outline: none;
 }
 
 #para{
-    text-align: center;
+    margin-top: 7px;
 }
 
 #para a{
-    padding: 0px 10px;
+    padding: 0px 5px;
     text-decoration: none;
 }
 
@@ -113,7 +114,7 @@ textarea{
 
 #btn{
     width: 100%;
-    background: url('images/green4.jpg') no-repeat center center/cover;
+    background-color: #216921;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -126,4 +127,8 @@ textarea{
 
 #btn:hover{
     cursor: pointer;
+}
+
+#field6{
+    margin-top: 10px;
 }

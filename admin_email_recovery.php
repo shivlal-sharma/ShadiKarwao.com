@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $email = mysqli_real_escape_string($con, ($_POST['email']));
 
-        $checkquery = "SELECT * FROM `admin003` WHERE `Email`='$email'";
+        $checkquery = "SELECT * FROM `admin003` WHERE `Email`='$email' AND `status`='active'";
         $query = mysqli_query($con, $checkquery);
         $num_rows = mysqli_num_rows($query);
         if($num_rows > 0){
@@ -19,19 +19,19 @@
 
             if(mail($email, $subject, $body, $sender)){ ?>
                 <script>
-                    alert("Please, Check your email to reset your password...");
+                    alert("Verify your Email...");
                     location.replace('login_admin.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Email sending failed...");
+                    alert("something went wrong...");
                 </script>
             <?php }
         }
         else{ ?>
             <script>
-                    alert("No Email found, \nPlease enter the correct Email...");
+                    alert("Invalid Email...");
             </script>
        <?php }
     }
@@ -45,8 +45,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Recovery</title>
-    <link rel="stylesheet" href="email_recovery.css?v=5">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="sign_up.css">
 </head>
 <body>
     <?php
@@ -59,12 +58,11 @@
             <div class="input" id="field1">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" autofocus required>
-                <i class="fa-solid fa-envelope"></i>
             </div>
-            <div class="input" id="field2">
-                <input type="submit" name='submit' id='submit' value="Send Email">
+            <div class="input" id="field6">
+                <button type="submit" name='submit' id='btn'>Send Email</button>
             </div>
-            <div id="center">Not an admin ?<a href="login.php">Login</a></div>
+            <div id="para">Are you admin ? <a href="login_admin.php">Login</a></div>
         </form>
     </section>
 </body>

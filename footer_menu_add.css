@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
 }
 
@@ -10,7 +9,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('images/blue3.webp') no-repeat center center/cover;
 }
 
 form h2{
@@ -22,7 +20,7 @@ form{
     width: 300px;
     padding: 20px;
     border-radius: 5px;
-    background: url('images/white4.avif') no-repeat center center/cover;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
 .input{
@@ -47,28 +45,22 @@ div label{
     font-size:1.1rem;
 }
 
-input{
+input,select{
     width: 100%;
-    padding: 5px 30px 5px 5px;
-    box-sizing: border-box;
+    padding: 5px;
     font-size:1rem;
+    border: 1px solid #a1a1a1;
+    outline: none;
 }
 
-input[type="file"]{
-    padding: 5px 30px 5px 5px;
-    background: #fff;
-    border: 0.5px solid #7b7b7b;
-    border-radius: 3px;
-}
-
-input[type="file"]:hover{
-    cursor: pointer;
+input[type="password"]{
+    padding: 5px 40px 5px 5px;
 }
 
 textarea{
     font-size: 1rem;
     height: 50px;
-    padding: 5px 30px 5px 5px;
+    padding: 5px;
     width: 100%;
     resize: none;
 }
@@ -82,7 +74,7 @@ img{
 
 #btn{
     width: 100%;
-    background: url('images/dgreen.avif') no-repeat center center/cover;
+    background-color: #007d00;
     color: white;
     padding: 7px 0px;
     border: none;
@@ -101,10 +93,9 @@ img{
 #btn1{
     outline: none;
     font-size:1rem;
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 2px 0px;
     border: 0.5px solid #7b7b7b;
-    background: url('images/white10.avif') no-repeat center center/cover;
     font-weight: bold;
     border-radius: 3px;
 }
@@ -116,4 +107,8 @@ img{
 
 #btn1:hover{
     cursor: pointer;
+}
+
+#field-submit{
+    margin-top: 15px;
 }

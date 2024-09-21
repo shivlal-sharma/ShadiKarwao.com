@@ -5,8 +5,6 @@
         header('location:login_admin.php');
     }
     
-    // $id = $_GET['update'];
-
     include 'connect.php';
     if(isset($_POST['submit'])){
         $id = $_POST['Sr_No'];
@@ -19,7 +17,7 @@
         $num_rows = mysqli_num_rows($query);
         if($num_rows > 0){ ?>
             <script>
-                alert('Content Already Exists, \nPlease Enter another content...');
+                alert('Content already exists...');
                 location.replace('home_details.php');
             </script>
        <?php }
@@ -28,13 +26,13 @@
             $query = mysqli_query($con, $updatequery);
             if($query){ ?>
                 <script>
-                    alert("Content has been updated successfully...");
+                    alert("Content has updated successfully!");
                     location.replace('home_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Content not updated...");
+                    alert("Something went wrong...");
                 </script>
             <?php } 
        }
@@ -43,15 +41,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Content</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <?php
         $id = $_GET['update'];
@@ -75,7 +70,7 @@
                             <input type="text" id="ask" name="ask" value="<?php echo $row['Ask']; ?>" autofocus autocomplete="off">
                         </div>         
                         <input type="hidden" name='Sr_No' value="<?php echo $row['Sr_No']; ?>">                
-                        <div class="input" id="field5">
+                        <div class="input" id="field-submit">
                             <button type="submit" name="submit" id="btn">Submit</button>
                         </div>
                         <div class="input">
@@ -86,6 +81,5 @@
            <?php }
         }
     ?>
-
 </body>
 </html>

@@ -4,20 +4,18 @@
         header('location:login_admin.php');
     }
 
-    // $id = $_GET['update'];
-
     include 'connect.php';
     if(isset($_POST['submit'])){
         $id = $_POST['Sr_No'];
         $name = $_POST['name'];
         $link = $_POST['link'];
 
-        $selectquery = "SELECT * FROM `navbar363` WHERE `Name`='$name' && `Link`='$link'";
+        $selectquery = "SELECT * FROM `navbar363` WHERE `Name`='$name' AND `Link`='$link'";
         $select = mysqli_query($con, $selectquery);
         $num_rows = mysqli_num_rows($select);
         if($num_rows > 0){ ?>
             <script>
-                alert('Link Already Exists, \nPlease Enter another Link...');
+                alert('Link already exists...');
                 location.replace('navbar_details.php');
             </script>
        <?php }
@@ -26,13 +24,13 @@
             $query = mysqli_query($con, $updatequery);
             if($query){ ?>
                 <script>
-                    alert("Link has been updated Successfully...");
+                    alert("Link has updated successfully!");
                     location.replace('navbar_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Link not updated...");
+                    alert("Something went wrong...");
                 </script>
             <?php }
         }       
@@ -41,15 +39,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Navbar</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=5">
-    <!-- <link rel="stylesheet" media="screen and (max-width: 1100px)" href="admin_res.css"> -->
+    <title>Update Navbar Link</title>
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <?php
         $id = $_GET['update'];
@@ -57,10 +52,9 @@
         $query = mysqli_query($con, $selectquery);
         if($query){
             while($row = mysqli_fetch_assoc($query)){ ?>
-
                 <section id="container">
                     <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
-                        <h2>Update Navbar</h2>
+                        <h2>Update Navbar Link</h2>
                         <div class="input">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" value="<?php echo $row['Name']; ?>" autofocus autocomplete="off" required>
@@ -70,7 +64,7 @@
                             <input type="text" id="link" name="link" value="<?php echo $row['Link']; ?>" autofocus autocomplete="off" required>
                         </div>           
                         <input type="hidden" name="Sr_No" value="<?php echo $row['Sr_No']; ?>">
-                        <div class="input">
+                        <div class="input" id="field-submit">
                             <button type="submit" name="submit" id="btn">Update</button>
                         </div>
                         <div class="input">
@@ -78,7 +72,6 @@
                         </div>
                     </form>
                 </section>
-
            <?php }
         }
     ?>

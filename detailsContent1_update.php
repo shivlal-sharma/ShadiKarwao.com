@@ -17,7 +17,7 @@
         $num_rows = mysqli_num_rows($query);
         if($num_rows > 0){ ?>
             <script>
-                alert('Content Already Exists, \nPlease Enter another content...');
+                alert('Content already exists...');
                 location.replace('detailsContent1_details.php');
             </script>
        <?php }
@@ -26,13 +26,13 @@
             $query = mysqli_query($con, $updatequery);
             if($query){ ?>
                 <script>
-                    alert("Content has been Updated successfully...");
+                    alert("Content has updated successfully!");
                     location.replace('detailsContent1_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Content not Updated...");
+                    alert("Something went wrong...");
                 </script>
             <?php } 
        }
@@ -41,14 +41,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details Content</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
+    <title>Update Details Content</title>
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <?php
          $id =$_GET['update'];
@@ -76,8 +74,8 @@
                             <input type="text" id="link" name="link" value="<?php echo $row['Link']; ?>" autofocus autocomplete="off" required>
                         </div>      
                         <input type="hidden" name="Sr_No" value="<?php echo $row['Sr_No']; ?>">   
-                        <div class="input">
-                            <button type="submit" name="submit" id="btn">Update</button>
+                        <div class="input" id="field-submit">
+                            <button type="submit" name="submit" id="btn">Update Details Content</button>
                         </div>
                         <div class="input">
                             <button type="submit" id="btn1"><a href="detailsContent1_details.php">Go Back</a></button>

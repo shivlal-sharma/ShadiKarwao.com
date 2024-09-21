@@ -1,55 +1,7 @@
 <?php
     session_start();
     include 'connect.php';
-
-    $exists = false;
-    $success = false;
-    $error = false;
-
-    if(isset($_POST['heart'])){
-        $location_name = $_POST['location_name'];
-        $capacity = $_POST['capacity'];
-        $price = $_POST['price'];
-        $location_image = $_POST['location_image'];
-        $details = $_POST['details'];
-        $location_id = $_POST['location_id'];
-
-        if(isset($_SESSION['fullName'])){
-            $checkquery = "SELECT * FROM `wishlist30` WHERE `Location_Id`=$location_id";
-            $query = mysqli_query($con, $checkquery);
-            if(mysqli_num_rows($query) > 0){
-                $exists = true;
-            }
-            else{
-                $insertquery = "INSERT INTO `wishlist30` (`Location_Name`, `Capacity`, `Price`, `Location_Image`, `Details`, `Location_Id`, `Date`) VALUES ('$location_name', '$capacity', '$price', '$location_image', '$details', '$location_id', current_timestamp())";
-                $result = mysqli_query($con, $insertquery);
-                if($result){
-                    $success = true;
-                }
-                else{ 
-                    $error = true;
-                }
-            }  
-        }
-        else{
-            header('location:login.php');
-        }
-    } 
-    
-    if(isset($_POST['sendLocation'])){
-        $location_id = $_POST['location_id'];
-
-        $checkquery = "SELECT * FROM `location001` WHERE `Location_Id`= $location_id";
-        $result = mysqli_query($con, $checkquery);
-        $num_rows = mysqli_num_rows($result);
-        if($num_rows){ 
-            $locationData = mysqli_fetch_assoc($result);
-            $_SESSION['location'] = $locationData;
-        } 
-    }
 ?>
-
-    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,63 +9,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="services.css?v=6">
-    <link rel="stylesheet" media="screen and (max-width:1100px)" href="services_res.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="services.css">
 </head>
 <body>
     <?php
         include "navbar.php";
     ?>
+    <header class="header2">
+        <h1>Explore Our Locations</h1>
+        <p>Find the perfect place for your next event</p>
+    </header>
     <div id="container">
-        <?php
-            if($exists == true){ ?>
-                <span id="error">Location has already been added Successfully! <b onclick="remove(this)">&times;</b></span>
-           <?php }
-
-            if($success == true){ ?>
-                <span id="success">Location has been added Successfully! <b onclick="remove(this)">&times;</b></span>
-           <?php }
-
-            if($error == true){ ?>
-                <span id="error">Location has not been added Successfully! <b onclick="remove(this)">&times;</b></span>
-           <?php }
-        ?>
-        <div id="Box">
-
         <?php
             include 'connect.php';
             $selectquery = "SELECT * FROM `location001`";
             $result = mysqli_query($con, $selectquery);
             if(mysqli_num_rows($result) > 0){
-                while($row = mysqli_fetch_assoc($result)){ ?>
-                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">                
-                    <div id="box">
-                        <img src="location_img/<?php echo $row['Location_Image']; ?>" alt="Location Image">
-                        <div class="name"><?php echo $row['Location_Name']; ?></div>
-                        <div class="name">Capacity - <?php echo number_format($row['Capacity']); ?> People</div>
-                        <div class="name">Rs.<?php echo number_format($row['Price']); ?>/-</div>
-                        <input type="hidden" name="location_image" value="<?php echo $row['Location_Image']; ?>">
-                        <input type="hidden" name="location_name" value="<?php echo $row['Location_Name']; ?>">
-                        <input type="hidden" name="capacity" value="<?php echo $row['Capacity']; ?>">
-                        <input type="hidden" name="price" value="<?php echo $row['Price']; ?>">
-                        <input type="hidden" name="details" value="<?php echo $row['Details']; ?>">
-                        <input type="hidden" name="location_id" value="<?php echo $row['Location_Id']; ?>">
-                        <div id="detail"><a href="details<?php echo $row['Location_Id']; ?>.php"><?php echo $row['Details']; ?></a></div>
-                        <button id="book" name="sendLocation">Book Now</button>
-                        <button id="heart" name="heart"><i class='fa-sharp fa-solid fa-heart' onclick='heart(this)'></i></button>
-                    </div>
-                </form>
-            <?php }
-            }
-            else{ ?>
-                <div id="location">
-                    <h2>There is no location available</h2>
-                </div>
-           <?php }  ?>
-        </div>
+                while($row = mysqli_fetch_assoc($result)){ 
+                    $location_image = $row['Location_Image'];
+                    $location_name = $row['Location_Name'];
+                    $capacity = $row['Capacity'];
+                    $price = $row['Price'];
+                    $details = $row['Details'];
+                    $location_id = $row['Location_Id'];
+                    echo "<div class='card'>
+                            <span class='heart' data-location-id='$location_id'><i class='fa-sharp fa-solid fa-heart'></i></span>
+                            <img src='./images/$location_image' alt='$location_name' class='location-image'>
+                            <div class='card-content'>
+                                <h2 class='location-name'>$location_name</h2>
+                                <p class='location-capacity'>Capacity: $capacity</p>
+                                <p class='location-price'>Price: Rs.".number_format($price,2,'.',',')."/-</p>
+                                <button class='view-detail'><a href='details$location_id.php?no=$location_id'>$details</a></button>
+                            </div>
+                          </div>";
+                }
+            }else{
+                echo "<div id='location'>
+                        <h2>There is no Location Available</h2>
+                    </div>";
+            }  
+        ?>
     </div>
 
-    <script src="services.js?v=2"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || {};
+
+            $('.heart').each(function(){
+                const heart = $(this);
+                const locationId = heart.data('location-id');
+
+                if(wishlist[locationId]){
+                    heart.addClass('active');
+                }
+                else{
+                    heart.removeClass('active');
+                }
+            });
+
+            $('.heart').click(function() {
+                const heart = $(this);
+                const locationId = heart.data('location-id');
+                const action = heart.hasClass('active') ? 'remove' : 'add';
+
+                $.ajax({
+                    url: 'wishlist.php',
+                    type: 'POST',
+                    data: { action: action, location_id: locationId },
+                    success: function(response) {
+                        if (action === 'add') {
+                            heart.addClass('active');
+                            wishlist[locationId] = true;
+                        } else {
+                            heart.removeClass('active');
+                            delete wishlist[locationId];
+                        }
+                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        location.reload();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

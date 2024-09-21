@@ -7,16 +7,15 @@
         $result = mysqli_query($con, $deletesql);
         if($result){ ?>
             <script>
-                alert('Link has been Deleted Successfully...');
+                alert('Link has deleted successfully!');
                 location.replace('navbar_details.php');
             </script>
         <?php }
         else{ ?>
             <script>
-                alert('Link Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('navbar_details.php');
             </script>
         <?php }
     }
-
 ?>

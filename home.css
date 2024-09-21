@@ -1,21 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body{
-    height: 100vh;
-    background: url('images/wedding.jpg') no-repeat center center/cover;
-}
-
 #container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 97vh;
+    background: url('images/wedding.jpg') no-repeat center center/cover;
+    height: 100vh;
 }
 
 #box{
@@ -24,9 +13,6 @@ body{
     align-items: center;
     width: 94vw;
     font-size: 25px;
-    font-weight: bold;
-    text-shadow: 1px 1px #ff0000;
-    backdrop-filter: blur(1.5px);
 }
 
 section #box #para{

@@ -1,0 +1,40 @@
+main {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 60px 30px;
+}
+
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.welcome{
+    margin-bottom: 5px;
+}
+
+h1, h2, h3 {
+    color: #e57e20;
+    margin-block: 10px;
+}
+
+.team-member {
+    margin: 20px 0;
+}
+
+.contact-us{
+    margin-block: 5px;
+}
+
+.info{
+    text-decoration: none;
+}
+
+footer {
+    background: #3d3d3d;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}

@@ -15,7 +15,7 @@
         $num_rows = mysqli_num_rows($query);
         if($num_rows > 0){ ?>
             <script>
-                alert('Content Already Exists, \nPlease Enter another content...');
+                alert('Content already exists...');
             </script>
        <?php }
        else{          
@@ -23,13 +23,13 @@
             $query = mysqli_query($con, $insertquery);
             if($query){ ?>
                 <script>
-                    alert("Content has been added successfully...");
+                    alert("Content has added successfully!");
                     location.replace('home_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Content not added...");
+                    alert("Something went wrong...");
                 </script>
             <?php } 
        }
@@ -38,15 +38,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Content</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <section id="container">
             <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
@@ -63,8 +60,8 @@
                     <label for="ask">Ask</label>
                     <input type="text" id="ask" name="ask" autofocus autocomplete="off">
                 </div>
-                <div class="input">
-                    <button type="submit" name="submit" id="btn">Add</button>
+                <div class="input" id="field-submit">
+                    <button type="submit" name="submit" id="btn">Add Content</button>
                 </div>
                 <div class="input">
                     <button type="submit" id="btn1"><a href="home_details.php">Go Back</a></button>

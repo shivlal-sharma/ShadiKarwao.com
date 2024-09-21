@@ -1,9 +1,6 @@
 <?php
-
     session_start();
-
     include 'connect.php';
-
     if(isset($_GET['delete'])){
         $id = $_GET['delete'];
 
@@ -11,13 +8,13 @@
         $result = mysqli_query($con, $deletequery);
         if($result){ ?>
            <script>
-                alert('Link has been Deleted Successfully...');
+                alert('footer Link has deleted successfully!');
                 location.replace('footer_follow_details.php');
            </script>
        <?php }
         else{ ?>
             <script>
-                alert('Link Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('footer_follow_details.php');
             </script>
        <?php }

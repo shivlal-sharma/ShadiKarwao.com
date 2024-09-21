@@ -1,19 +1,14 @@
 #container{
-    margin-top: 41px;
-    background: url('images/pink1.avif') no-repeat center center/cover;
+    margin-top: 90px;
     display: flex;
     justify-content: center;
-    height: 87.7vh;
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(4,300px);
-    grid-template-rows: repeat(2,190px);
     grid-gap: 10px;
 }
 
 #contact {
-    border: 2px solid rgb(0, 238, 255);
-    border-radius: 3px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -21,7 +16,7 @@
 }
 
 #contact label {
-    color: #ff0000;
+    color: #0000ff;
 }
 
 #contact label:hover {
@@ -29,15 +24,9 @@
 }
 
 #contact .div {
-    border: 2px solid rgb(0, 255, 145);
-    border-radius: 3px;
     color: rgb(54, 0, 115);
     margin: 5px 0px;
     padding: 0px 3px;
-}
-
-#contact .div div:hover {
-    color: #0000ff;
 }
 
 #date{

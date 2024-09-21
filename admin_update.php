@@ -12,53 +12,44 @@
         $email = mysqli_real_escape_string($con , ($_POST['email']));
         $password = mysqli_real_escape_string($con , ($_POST['password']));
         $cpassword = mysqli_real_escape_string($con , ($_POST['cpassword']));
-
         $token = bin2hex(random_bytes(15));
-
         $status = mysqli_real_escape_string($con , ($_POST['status']));
-
         if($password == $cpassword){
-
             $pass_hash = password_hash($password, PASSWORD_BCRYPT);
             $updatequery = "UPDATE `admin003` SET `Sr_No`=$id, `FirstName`='$fname', `LastName`='$lname', `Email`='$email', `Password`='$pass_hash', `status`='$status', `Time`=current_timestamp() WHERE `Sr_No`=$id";
             $result = mysqli_query($con, $updatequery);
             if($result){ ?>
                 <script>
-                    alert("Admin Updated Successfully...");
+                    alert("Admin updated successfully...");
                     location.replace('admin_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Please, Fill the data correctly...");
+                    alert("Something went wrong...");
                 </script>
             <?php }
         }
         else{ ?>
             <script>
-                alert("Please, Fill the correct Password...");
+                alert("incorrect confirm password...");
             </script>
         <?php }
     }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Update User </title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
+    <link rel="stylesheet" href="footer_menu_add.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-
 <body>
     <?php
-
         $id = $_GET['updateid'];
-        
         $sql = "SELECT * FROM `admin003` WHERE `Sr_No`=$id";
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_assoc($result);
@@ -68,38 +59,33 @@
             <h2>Update Admin</h2>
             <div class="input">
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" value="<?php echo $row['FirstName']; ?>" onkeyup="check(this.value)" autofocus autocomplete="off" required>
-                <p class="error"></p>
+                <input type="text" id="fname" name="fname" value="<?php echo $row['FirstName']; ?>" autofocus autocomplete="off" required>
             </div>
             <div class="input">
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" value="<?php echo $row['LastName']; ?>" onkeyup="check1(this.value)" autofocus autocomplete="off" required>
-                <p class="error"></p>
+                <input type="text" id="lname" name="lname" value="<?php echo $row['LastName']; ?>" autofocus autocomplete="off" required>
             </div>
             <div class="input">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?php echo $row['Email']; ?>" onkeyup="check2(this.value)" autofocus autocomplete="off" required>
-                <p class="error"></p>
-                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" name="email" value="<?php echo $row['Email']; ?>" autofocus autocomplete="off" required>
             </div>
             <div class="input">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="<?php echo $row['Password']; ?>" onkeyup="check3(this.value)" autofocus autocomplete="off" required>
+                <input type="password" id="password" name="password" value="<?php echo $row['Password']; ?>" onkeyup="check1(this.value)" autofocus autocomplete="off" required>
                 <i class="fa-solid fa-eye-slash" id="eyeClose" onclick="toggle()"></i>
                 <p class="error"></p>
             </div>
             <div class="input">
                 <label for="cpassword">Confirm Password</label>
-                <input type="password" id="cpassword" name="cpassword" value="<?php echo $row['Password']; ?>" onkeyup="check4(this.value)" autofocus autocomplete="off" required>
+                <input type="password" id="cpassword" name="cpassword" value="<?php echo $row['Password']; ?>" onkeyup="check2(this.value)" autofocus autocomplete="off" required>
                 <p class="error"></p>
             </div>
             <div class="input">
                 <label for="status">Status</label>
-                <input type="text" id="status" name="status" value="<?php echo $row['status']; ?>" onkeyup="check5(this.value)" autofocus autocomplete="off" required>
-                <p class="error"></p>
+                <input type="text" id="status" name="status" value="<?php echo $row['status']; ?>" autofocus autocomplete="off" required>
             </div>
             <input type="hidden" name="Sr_No" value="<?php echo $row['Sr_No']; ?>">
-            <div class="input">
+            <div class="input" id="field-submit">
                 <button type="submit" name="submit" id="btn">Update</button>
             </div>
             <div class="input">
@@ -108,7 +94,7 @@
         </form>
     </section>
 
-    <script src="sign_up.js?v=0"></script>
+    <script src="sign_up.js"></script>
 
 </body>
 </html>

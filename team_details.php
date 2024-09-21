@@ -12,8 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locations</title>
-    <link rel="stylesheet" href="admin_navbar_details.css?v=3">
-    <link rel="stylesheet" href="team_details.css?v=8">
+    <link rel="stylesheet" href="admin_navbar_details.css">
+    <link rel="stylesheet" href="team_details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -22,9 +22,9 @@
     ?>
     <nav>
         <div id="add">
-            <a href="contact_details.php" id="submit"><i class="fa-solid fa-backward"></i>&nbsp;&nbsp;&nbsp; Backward</a>
+            <a href="content_details.php" id="submit"><i class="fa-solid fa-backward"></i>&nbsp;&nbsp;&nbsp; Backward</a>
             <a href="add_team.php" id="submit1">Add Team</a>
-            <a href="location_details.php" id="submit2">Forward &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-forward"></i></a>
+            <a href="details_details1.php" id="submit2">Forward &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-forward"></i></a>
         </div>
     </nav>
 

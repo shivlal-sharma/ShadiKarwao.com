@@ -19,20 +19,18 @@
         if($result){
             move_uploaded_file($location_tmp_name, "location_img/$location_img"); ?>
             <script>
-                alert('Location Updated Successfully...');
+                alert('Location changed successfully...');
                 location.replace('location_details.php');
             </script>
     <?php }
     else{ ?>
             <script>
-                alert('Location Not Updated...');
+                alert('something went wrong...');
                 location.replace('location_details.php');
             </script>
     <?php }
    }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,33 +38,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Location</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
 <body>
     <?php
-
         $id = $_GET['update'];
-
         $selectquery = "SELECT * FROM `location001` WHERE `Location_Id`=$id";
         $result = mysqli_query($con, $selectquery);
         while($row = mysqli_fetch_assoc($result)){
     ?>
     <section id="container">
-            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" onsubmit="return validate()" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
                 <h2>Update Location</h2>
                 <div class="input">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="location_name" value="<?php echo $row['Location_Name']; ?>" onkeyup="check(this.value)" autofocus autocomplete="off" required>
+                    <input type="text" id="name" name="location_name" value="<?php echo $row['Location_Name']; ?>" autofocus autocomplete="off" required>
                     <p class="error"></p>
                 </div>
                 <div class="input">
                     <label for="capacity">Capacity</label>
-                    <input type="number" id="capacity" name="capacity" value="<?php echo $row['Capacity']; ?>" onkeyup="check1(this.value)" autofocus autocomplete="off" required>
+                    <input type="number" id="capacity" name="capacity" value="<?php echo $row['Capacity']; ?>" autofocus autocomplete="off" required>
                     <p class="error"></p>
                 </div>
                 <div class="input">
                     <label for="price">Price</label>
-                    <input type="number" id="price" name="price" value="<?php echo $row['Price']; ?>" onkeyup="check2(this.value)" autofocus autocomplete="off" required>
+                    <input type="number" id="price" name="price" value="<?php echo $row['Price']; ?>" autofocus autocomplete="off" required>
                     <p class="error"></p>
                 </div>
                 <div class="input">
@@ -76,7 +72,7 @@
                 </div>
                 <div class="input">
                     <label for="details">Details</label>
-                    <input type="text" id="details" name="details" value="<?php echo $row['Details']; ?>" onkeyup="check3(this.value)" autofocus autocomplete="off" required>
+                    <input type="text" id="details" name="details" value="<?php echo $row['Details']; ?>" autofocus autocomplete="off" required>
                     <p class="error"></p>
                 </div>
                 <input type="hidden" name="location_id" value="<?php echo $row['Location_Id']; ?>">
@@ -89,8 +85,5 @@
             </form>
         </section>
 <?php } ?>
-
-        <script src="add_location.js?v=5"></script>
-
 </body>
 </html>

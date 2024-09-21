@@ -1,118 +1,275 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-
-#container{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: url('images/blue9.webp') no-repeat center center/cover;
-}
-
-span{
-    width: 450px;
-    margin-top: 50px;
-    margin-inline: auto;
-    padding: 5px 10px;
-    color: #fff;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+.header2 {
+    margin-top: 60px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
+}
+
+.header2 h1 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.header2 p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#container {
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    overflow: hidden;
+    width: calc(31.333% - 20px);
+    margin: 15px;
     position: relative;
 }
 
-b{
+.card:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.heart {
     position: absolute;
-    top: 1px;
+    top: 10px;
     right: 10px;
-    font-size: 1.7rem;
-    color: #00ffdd;
-    cursor: pointer;
-}
-
-#success{
-    background: #006600;
-}
-
-#error{
-    background: #ff0000;
-}
-
-#Box{
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-}
-
-#box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 218px;
-    height: 340px;
-    margin: 7px;
-    background: url('images/white9.avif') no-repeat center center/cover;
-}
-
-#box{
-    position: relative;
-}
-
-#Box img {
-    height: 200px;
-    width: 200px;
-}
-
-#Box i{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 19px;
-    height: 16px;
+    font-size: 20px;
     color: #fff;
-}
-
-#Box i:hover{
     cursor: pointer;
+    transition: color 0.3s ease, border 0.3s ease;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #9292a6;
 }
 
-#box .name {
-    padding: 2px 3px;
+.heart.active {
+    color: red;
+    border:2px solid red; 
+    background-color: #fff;
 }
 
-#box #detail a{
-    display: inline-block;
+.location-image {
     width: 100%;
-    padding: 2px 10px;
-    background: url('images/orange2.avif') no-repeat center center/cover;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 3px;
-    cursor: pointer;
+    height: 200px;
+    object-fit: fill;
 }
 
-#book{
-    background: #0d550d;
-    padding: 3px 10px;
+.card-content {
+    padding: 15px;
+}
+
+.location-name {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.location-capacity, .location-price {
+    margin: 10px 0;
+}
+
+.view-detail {
+    background-color: #007BFF;
     border: none;
-    outline: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.view-detail a{
+    display: block;
+    text-decoration: none;
     color: #fff;
-    margin-top: 7px;
-    margin-inline: auto;
+    padding: 10px;
     cursor: pointer;
+    font-size: 1.2em;
+}
+
+.view-detail:hover {
+    background-color: #0056b3;
 }
 
 #location{
+    width: 100%;
     text-align: center;
-    padding: 2px 10px;
-    background: url('images/pink.webp') no-repeat center center/cover;
+}
+
+@media (max-width:1300px){
+    #container{
+        width: 90%;
+    }
+}
+
+@media (max-width:1200px){
+    #container{
+        width: 95%;
+    }
+}
+
+@media (max-width:1100px){
+    #container{
+        width: 95%;
+    }
+}
+
+@media (max-width:1000px){
+    #container{
+        margin: 0px auto;
+    }
+}
+
+@media (max-width:900px){
+    .card{
+        width: calc(33.333% - 20px);
+        margin: 10px;
+    }
+    .location-image{
+        height: 175px;
+    }
+    .header2 h1{
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    .header2 p{
+        font-size: 1.1em;
+    }
+    .location-name{
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width:800px){
+    .card-content{
+        padding: 7px;
+    }
+    .location-image{
+        height: 160px;
+    }
+    .location-capacity{
+        margin: 7px 0px;
+    }
+    .location-price{
+        margin: 7px 0px;
+    }
+    .view-detail a{
+        padding: 7px;
+    }
+}
+
+@media (max-width:700px){
+    .location-image{
+        height: 150px;
+    }
+}
+
+@media (max-width:650px){
+    .card{
+        width: calc((47.333% - 20px));
+        margin: 15px;
+    }
+    .location-image{
+        height: 200px;
+    }
+    .card-content{
+        padding: 15px;
+    }
+    .location-name{
+        font-size: 1.3em;
+    }
+    .location-capacity{
+        margin: 10px 0px;
+    }
+    .location-price{
+        margin: 10px 0px;
+    }
+    .view-detail a{
+        padding: 10px;
+    }
+}
+
+@media (max-width:600px){
+    .location-image{
+        height: 175px;
+    }
+}
+
+@media (max-width:550px){
+    #container{
+        padding: 20px 5px;
+    }
+    .card{
+        width: calc((49.333% - 20px));
+        margin: 10px;
+    }
+    .location-image{
+        height: 150px;
+    }
+    .card-content{
+        padding: 10px;
+    }
+    .location-name{
+        font-size: 1.2em;
+    }
+    .location-capacity{
+        margin: 7px 0px;
+    }
+    .location-price{
+        margin: 7px 0px;
+    }
+    .view-detail a{
+        padding: 7px;
+    }
+}
+
+@media (max-width:454px){
+    .header2 h1{
+        font-size: 17px;
+    }
+    .header2 p{
+        font-size: 15px;
+    }
+    .card{
+        width: calc((51.333% - 20px));
+        margin: 10px 7px;
+    }
+    .location-image{
+        height: 130px;
+    }
+    .heart{
+        font-size: 15px;
+    }
+    .card-content{
+        padding: 5px;
+    }
+    .location-name{
+        font-size: 17px;
+    }
+    .location-capacity{
+        margin: 3px 0px;
+        font-size: 15px;
+    }
+    .location-price{
+        margin: 3px 0px;
+        font-size: 15px;
+    }
+    .view-detail a{
+        padding: 5px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:370px){
+    .location-image{
+        height: 100px;
+    }
 }

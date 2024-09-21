@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(isset($_GET['no'])){
+        $_SESSION['location_id'] = $_GET['no'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -7,14 +10,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
-    <link rel="stylesheet" href="details.css?v=1">
-    <link rel="stylesheet" media="screen and (max-width:1200px)" href="details_res.css?v=1">
+    <title>Location Details</title>
+    <link rel="stylesheet" href="details.css">
 </head>
 <body>
-    <?php
-        include "navbar.php";
-    ?>
+    <?php include "navbar.php"; ?>
 
     <section id="container">
         <div id="box">
@@ -25,8 +25,8 @@
             if($query){
                 while($row = mysqli_fetch_assoc($query)){ ?>
                         <div id="details">
-                            <img src="details_img/<?php echo $row['Image'] ?>" alt="Location Images">
-                            <p><?php echo $row['Name'] ?></p>
+                            <img src="details_img/<?php echo $row['Image']; ?>" alt="Location Images">
+                            <p><?php echo $row['Name']; ?></p>
                         </div>
             <?php }
             } 

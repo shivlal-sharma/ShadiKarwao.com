@@ -1,24 +1,15 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-
 .container {
-    height: 97.5vh;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('images/blue7.avif') no-repeat center center/cover;
 }
 
 .alert{
     position: absolute;
-    top: -40px;
-    width: 420px;
-    margin-inline: auto;
+    width: 280px;
+    margin-bottom: 20px;
     padding: 5px 10px;
     color: #fff;
     font-size: 1.1rem;
@@ -31,7 +22,7 @@
 
 b{
     position: absolute;
-    top: 1px;
+    top: 0px;
     right: 10px;
     font-size: 1.7rem;
     color: #00ffdd;
@@ -48,10 +39,10 @@ b{
 
 
 form {
-    width: 300px;
-    padding: 10px 20px;
-    background: url('images/white10.avif') no-repeat center center/cover;
-    border-radius: 5px;
+    width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
 form h2 {
@@ -68,10 +59,10 @@ label {
     margin-bottom: 5px;
 }
 
-input {
+input,select {
     outline: none;
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     border: 1px solid #7b7b7b;
     border-radius: 3px;
     box-sizing: border-box;
@@ -87,7 +78,7 @@ p {
     color: #fff;
     border: none;
     border-radius: 3px;
-    padding: 10px 20px;
+    padding: 7px 20px;
     cursor: pointer;
     font-size: 1.1rem;
     text-align: center;
@@ -103,20 +94,16 @@ span{
 
 #btn1{
     outline: none;
-    font-size:1rem;
+    font-size:13px;
     margin-top: 10px;
     padding: 2px 0px;
-    border: 0.5px solid #7b7b7b;
-    background: url('images/white10.avif') no-repeat center center/cover;
-    font-weight: bold;
+    border: 1px solid #7b7b7b;
+    background-color: #fff;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 #btn1 a{
     padding: 2px 7px;
     text-decoration: none;
-}
-
-#btn1:hover{
-    cursor: pointer;
 }

@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="admin_navbar_details.css?v=3">
-    <link rel="stylesheet" href="home_details.css?v=5">
+    <link rel="stylesheet" href="admin_navbar_details.css">
+    <link rel="stylesheet" href="home_details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>

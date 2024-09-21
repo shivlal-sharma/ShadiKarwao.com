@@ -1,9 +1,6 @@
 <?php
-
     session_start();
-
     include 'connect.php';
-
     if(isset($_GET['deleteid'])){
         $id = $_GET['deleteid'];
 
@@ -11,16 +8,15 @@
         $result = mysqli_query($con, $deletesql);
         if($result){ ?>
             <script>
-                alert('Record Deleted Successfully...');
+                alert('User deleted successfully...');
                 location.replace('user_details.php');
             </script>
         <?php }
         else{ ?>
             <script>
-                alert('Record Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('user_details.php');
             </script>
         <?php }
     }
-
 ?>

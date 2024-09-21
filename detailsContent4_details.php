@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="admin_navbar_details.css?v=1">
-    <link rel="stylesheet" href="detailsContent_details.css?v=2">
+    <link rel="stylesheet" href="admin_navbar_details.css">
+    <link rel="stylesheet" href="detailsContent_details.css">
 </head>
 <body>
     <?php

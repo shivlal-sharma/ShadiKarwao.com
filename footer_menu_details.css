@@ -1,13 +1,10 @@
 #container{
-    margin-top: 40px;
-    background: url('images/pink1.avif') no-repeat center center/cover;
+    margin-top: 90px;
     display: flex;
     justify-content: center;
-    height: 87.7vh;
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(7,155px);
-    grid-template-rows: repeat(4,155px);
     grid-gap: 30px;
 }
 
@@ -40,21 +37,12 @@ img{
 }
 
 #menu li #anchor {
-    text-decoration: none;
     display: block;
+    text-decoration: none;
     padding: 2px 5px;
     text-align: center;
-    border: 2px solid navy;
-    color: #800080;
     margin-bottom: 3px;
-    transition: all 0.2s ease-in-out;
-}
-
-#menu li #anchor:hover{
     cursor: pointer;
-    color: #000080;
-    border: 2px solid #1aff00;
-    border-radius: 3px;
 }
 
 @media screen and (max-width:1300px) {

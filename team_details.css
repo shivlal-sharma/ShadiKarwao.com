@@ -1,13 +1,10 @@
 #container {
-    margin-top: 41px;
+    margin-top: 90px;
     padding: 10px;
-    height: 87.7vh;
-    background: url('images/blue10.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(8,160px);
-    grid-template-rows: repeat(3,260px);
     grid-gap: 20px;
 }
 

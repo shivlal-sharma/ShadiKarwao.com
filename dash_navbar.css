@@ -1,37 +1,62 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
 
+/* admin navbar */
 #header{
     width: 100%;
     height: 60px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    background: url('images/lblack.avif') no-repeat center center/cover;
+    background-color: #313131;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 3;
+    padding: 5px;
 }
 
-#header #img img{
+.navbar-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    margin: 0px 15px;
+}
+
+.navbar-left #hamburger{
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.about-us{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-left a img{
     height: 50px;
     width: 50px;
-    border-radius: 25px;
-    margin: 0px 17px;
+    border-radius: 50%;
+    margin: 0;
 }
 
-#mylink{
+.navbar-right{
     display: flex;
+    align-items: center;
 }
 
-#mylink li{
+.navbar-right li{
     list-style: none;
     margin: 0px 20px;
 }
 
-#mylink li a{
+.navbar-right li a{
     cursor: pointer;
     display: block;
     text-decoration: none;
@@ -42,48 +67,47 @@
     color: #f00;
 }
 
-#sidebarIconToggle{
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 4;
+/* admin sidebar */
+.modal{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
     position: fixed;
-}
-
-#openSidebarMenu:checked ~ #sidebarMenu{
-    transform: translateX(0px);
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 #sidebarMenu{
     height: 100%;
     width:250px;
-    background: url('images/blue7.avif') no-repeat center center/cover;
+    background-color: #2c2c2c;
     position: fixed;
     top: 0;
-    left:0;
-    margin-top: 60px;
-    transform: translateX(-250px);
-    transition: transform 0.3s ease-in-out;
+    left:-100%;
+    transition: left 0.5s ease;
     z-index: 5;
 }
-/* 
-#sidebarMenu #img img{
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    margin: 10px 0px -10px 15px;
-} */
+
+.cancel{
+    position: absolute;
+    top: -5px;
+    right: -25px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.menu{
+    width: 200px;
+    margin: 0px auto;
+    padding: 10px 20px;
+}
 
 .menu li{
     list-style: none;
-    margin: 4px 15px;
+    margin-block: 5px;
 }
 
 .menu li a{
@@ -92,40 +116,59 @@
     color: #fff;
 }
 
-.spinner{
-    width: 100%;
-    border: 2px solid #fff;
-    transition: all 0.3s;
-    display: none;
-}
-
-.spinner.middle,
-.spinner.bottom{
-    margin-top: 4px;
-}
-
-#openSidebarMenu:checked ~ #sidebarIconToggle  .spinner.middle{
-    opacity: 0;
-}
-#openSidebarMenu:checked ~ #sidebarIconToggle  .spinner.top{
-    transform: rotate(135deg);
-    margin-top: 9px;
-}
-#openSidebarMenu:checked ~ #sidebarIconToggle  .spinner.bottom{
-    transform: rotate(-135deg);
-    margin-top: -9px;
-}
-
-@media screen and (max-width:1550px) {
-    .spinner{
-        display: block;
-    }
-
-    #header{
-        justify-content: center;
-    }
-    
-    #mylink{
+/* responsive admin navbar */
+@media (max-width:920px){
+    .admins{
         display: none;
+    }
+}
+
+@media (max-width:820px){
+    .contacts{
+        display: none;
+    }
+}
+
+@media (max-width:720px){
+    .bookings{
+        display: none;
+    }
+}
+
+@media (max-width:620px){
+    .wishlists{
+        display: none;
+    }
+}
+
+@media (max-width:520px){
+    .locations{
+        display: none;
+    }
+}
+
+@media (max-width:420px){
+    .users{
+        display: none;
+    }
+}
+
+@media (max-width:350px){
+    .navbar-left{
+        margin: 0px 10px;
+        column-gap: 10px;
+    }
+    .navbar-right li{
+        margin: 0px 15px;
+    }
+}
+
+/* responsive admin sidebar */
+@media (max-width:400px){
+    #sidebarMenu{
+        width: 180px;
+    }
+    .menu{
+        width: 160px;
     }
 }

@@ -5,7 +5,6 @@
     }
     
     include 'connect.php';
-    // $id = $_GET['update'];
     if(isset($_POST['submit'])){
         $id = $_POST['Sr_No'];
         $name = $_POST['name'];
@@ -17,7 +16,7 @@
         $num_rows = mysqli_num_rows($query);
         if($num_rows > 0){ ?>
             <script>
-                alert('Link Already Exists, \nPlease Enter another content...');
+                alert('Link already exists...');
                 location.replace('home_link_details.php');
             </script>
        <?php }
@@ -26,13 +25,13 @@
             $query = mysqli_query($con, $insertquery);
             if($query){ ?>
                 <script>
-                    alert("Link has been updated successfully...");
+                    alert("Link has updated successfully...");
                     location.replace('home_link_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Link not updated...");
+                    alert("Something went wrong...");
                 </script>
             <?php } 
        }
@@ -41,15 +40,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Link</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <?php
         $id = $_GET['update'];
@@ -73,8 +69,8 @@
                                 <input type="text" id="divider" name="divider" value="<?php echo $row['Divider']; ?>" autofocus autocomplete="off">
                             </div>
                             <input type="hidden" name="Sr_No" value="<?php echo $row['Sr_No']; ?>">
-                            <div class="input">
-                                <button type="submit" name="submit" id="btn">Update</button>
+                            <div class="input" id="field-submit">
+                                <button type="submit" name="submit" id="btn">Update Link</button>
                             </div>
                             <div class="input">
                                 <button type="submit" id="btn1"><a href="home_link_details.php">Go Back</a></button>

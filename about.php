@@ -8,8 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="about.css?v=16">
-    <link rel="stylesheet" media="screen and (max-width:1100px)" href="about_res.css?v=10">
+    <link rel="stylesheet" href="about.css">
 </head>
 <body>
     <?php
@@ -24,11 +23,8 @@
             $result = mysqli_query($con, $selectquery);
             if($result){
                 while($row = mysqli_fetch_assoc($result)){ ?>
-                
-                    <div id="box">
-                        <img src="content_img/<?php echo $row['Content_Image']; ?>" alt="Content Image">
-                        <div id="content"><?php echo $row['Description']; ?></div>
-                    </div>                    
+                    <img src="content_img/<?php echo $row['Content_Image']; ?>" alt="Content Image">
+                    <div id="content"><?php echo $row['Description']; ?></div>                 
             <?php }
             }  ?>
 
@@ -44,7 +40,7 @@
             $result = mysqli_query($con, $selectquery);
             if($result){
                 while($row = mysqli_fetch_assoc($result)){ ?>                
-                    <div id="box2">
+                    <div class="box2">
                         <img src="team_img/<?php echo $row['Person_Image']; ?>" alt="Team Image">
                         <div class="name"><?php echo $row['Name']; ?></div>
                     </div>

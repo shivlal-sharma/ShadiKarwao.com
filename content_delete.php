@@ -7,16 +7,15 @@
         $result = mysqli_query($con, $deletequery);
         if($result){ ?>
            <script>
-                alert('Content has been Deleted Successfully...');
+                alert('Content has deleted successfully!');
                 location.replace('content_details.php');
            </script>
        <?php }
         else{ ?>
             <script>
-                alert('Location Not Deleted...');
+                alert('Something went wrong...');
                 location.replace('content_details.php');
             </script>
        <?php }
     }
-
 ?>

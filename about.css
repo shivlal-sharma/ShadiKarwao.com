@@ -1,60 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 html{
     scroll-behavior: smooth;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url('images/orange3.avif') no-repeat center center/cover;
-    height: 55vh;
-}
-
-#box {
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45vh;
+    padding: 20px 10px;
+    background-color: #ff8500;
 }
 
-#box img {
-    height: 40vh;
-    padding: 3px;
-    background: url('images/white10.avif') no-repeat center center/cover;
+#container img {
+    height: 270px;
+    border-radius: 10px;
+}
+
+#container img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 #content{
-    width: 45vw;
-    padding: 3px 7px;
-    margin: 10px;
+    width: 40vw;
+    margin: 15px;
     text-align: justify;
     text-indent: 50px;
-    font-family: Arial, sans-serif;
     color: #fff;
 }
 
 #container2 {
-    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url('images/blue3.webp') no-repeat center center/cover;
-}
-
-#Box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(4,auto);
+    background-color: #2d9ce8;
+    padding: 10px 0px;
 }
 
 #container2 h2 {
@@ -62,34 +42,44 @@ html{
     text-align: center;
 }
 
-#box2 {
+#Box{
+    width: 542px;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 170px;
-    height: 192px;
-    margin: 10px;
-    background: url('images/pink.webp') no-repeat center center/cover;
+    margin: 15px;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
 }
 
-#box2 img {
-    width: 160px;
-    height: 160px;
+.box2 img {
+    height: 150px;
 }
 
-#box2 .name {
-    margin-top: 5px;
+.box2 .name {
+    margin: 5px auto;
+}
+
+.box2:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 footer {
-    height: 42vh;
-    background: url('images/black2.jpg') no-repeat center center/cover;
+    background-color: #303030;
     color: #ffffff;
 }
 
 #Boxxx {
-    height: 35vh;
     display: flex;
     justify-content: center;
 }
@@ -98,14 +88,6 @@ footer {
     display: flex;
     flex-direction: column;
     margin: 0px 30px;
-}
-
-#box4 {
-    width: 130px;
-}
-
-#box5 {
-    width: 175px;
 }
 
 #box6 {
@@ -185,4 +167,96 @@ footer p {
     background: #2c313ac2;
     color: #00ffd0;
     padding: 5px 0px;
+}
+
+/* responsive for container1 */
+@media (max-width:650px){
+    #container{
+        flex-direction: column;
+    }
+
+    #container img{
+        height: 250px;
+    }
+
+    #content{
+        width: 80vw;
+    }
+}
+
+@media (max-width:400px){
+    #container img{
+        height: 200px;
+    }
+    #content{
+        font-size: 15px;
+    }
+}
+
+/* responsive for container2 */
+@media (max-width:600px){
+    #Box{
+        width: 420px;
+    }
+    .box2 img{
+        height: 110px;
+    }
+}
+
+@media (max-width:500px){
+    #container2 h2{
+        font-size: 20px;
+    }
+    #Box{
+        width: 280px;
+    }
+    .box2{
+        margin: 10px;
+    }
+    .box2 img{
+        height: 120px;
+    }
+    .box2 .name{
+        font-size: 15px;
+    }
+}
+
+/* responsive footer */
+@media (max-width:600px){
+    .box4{
+        margin: 0px 15px;
+    }
+}
+
+@media (max-width:500px){
+    .box4 h2{
+        font-size: 20px;
+    }
+    #contact #div{
+        font-size: 15px;
+    }
+    #social-media li a{
+        font-size: 15px;
+    }
+    #menu li a{
+        font-size: 15px;
+    }
+    footer p{
+        font-size: 15px;
+    }
+}
+
+@media (max-width:460px){
+    #Boxxx{
+        flex-wrap: wrap;
+    }
+    .box4{
+        margin: 0px 30px;
+    }
+    #box6{
+        width: 208px;
+    }
+    footer p{
+        font-size: 14px;
+    }
 }

@@ -16,7 +16,7 @@
         $num_rows = mysqli_num_rows($query);
         if($num_rows > 0){ ?>
             <script>
-                alert('Content Already Exists, \nPlease Enter another content...');
+                alert('Content already exists...');
             </script>
        <?php }
        else{          
@@ -24,13 +24,13 @@
             $query = mysqli_query($con, $insertquery);
             if($query){ ?>
                 <script>
-                    alert("Content has been added successfully...");
+                    alert("Content has added successfully!");
                     location.replace('detailsContent3_details.php');
                 </script>
             <?php }
             else{ ?>
                 <script>
-                    alert("Content not added...");
+                    alert("Something went wrong...");
                 </script>
             <?php } 
        }
@@ -39,43 +39,39 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details Content</title>
-    <link rel="stylesheet" href="footer_menu_add.css?v=0">
-    <!-- <link rel="stylesheet" media="screen and (max-width: 1100px)" href="admin_res.css"> -->
+    <title>Add Details Content</title>
+    <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <section id="container">
-            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
-                <h2>Add Details Content</h2>
-                <div class="input">
-                    <label for="content1">Content1</label>
-                    <input type="text" id="content1" name="content1" autofocus autocomplete="off" required>
-                </div>
-                <div class="input">
-                    <label for="content2">Content2</label>
-                    <input type="text" id="content2" name="content2" autofocus autocomplete="off">
-                </div>
-                <div class="input">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" autofocus autocomplete="off" required>
-                </div>         
-                <div class="input">
-                    <label for="link">Link</label>
-                    <input type="text" id="link" name="link" autofocus autocomplete="off" required>
-                </div>         
-                <div class="input">
-                    <button type="submit" name="submit" id="btn">Add</button>
-                </div>
-                <div class="input">
-                    <button type="submit" id="btn1"><a href="detailsContent3_details.php">Go Back</a></button>
-                </div>         
-            </form>
-        </div>
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
+            <h2>Add Details Content</h2>
+            <div class="input">
+                <label for="content1">Content1</label>
+                <input type="text" id="content1" name="content1" autofocus autocomplete="off" required>
+            </div>
+            <div class="input">
+                <label for="content2">Content2</label>
+                <input type="text" id="content2" name="content2" autofocus autocomplete="off">
+            </div>
+            <div class="input">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autofocus autocomplete="off" required>
+            </div>         
+            <div class="input">
+                <label for="link">Link</label>
+                <input type="text" id="link" name="link" autofocus autocomplete="off" required>
+            </div>         
+            <div class="input" id="field-submit">
+                <button type="submit" name="submit" id="btn">Add Details Content</button>
+            </div>
+            <div class="input">
+                <button type="submit" id="btn1"><a href="detailsContent3_details.php">Go Back</a></button>
+            </div>         
+        </form>
     </section>
 </body>
 </html>

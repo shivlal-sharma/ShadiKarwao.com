@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
-    <link rel="stylesheet" href="admin_navbar_details.css?v=1">
-    <link rel="stylesheet" href="details_details.css?v=3">
+    <link rel="stylesheet" href="admin_navbar_details.css">
+    <link rel="stylesheet" href="details_details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
     
     <nav>
     <div id="add">
-            <a href="wishlist_details.php" id="submit"><i class="fa-solid fa-backward"></i>&nbsp;&nbsp;&nbsp;&nbsp; Backward</a>
+            <a href="team_details.php" id="submit"><i class="fa-solid fa-backward"></i>&nbsp;&nbsp;&nbsp;&nbsp; Backward</a>
             <a href="details1_add.php" id="submit1">Add Details</a>
             <a href="detailsContent1_details.php" id="submit2">Forward &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-forward"></i></a>
         </div>
