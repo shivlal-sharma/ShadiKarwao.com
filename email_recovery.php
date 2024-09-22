@@ -1,6 +1,14 @@
 <?php
     session_start();
     include 'connect.php';
+    $icon = "";
+    $selectquery = "SELECT * FROM `navbar4`";
+    $query = mysqli_query($con, $selectquery);
+    if($query){
+        $fav_icon = mysqli_fetch_assoc($query); 
+        $icon =  $fav_icon['Image'];
+    } 
+
     if(isset($_POST['submit'])){
         $email = mysqli_real_escape_string($con, ($_POST['email']));
 
@@ -14,7 +22,7 @@
             $token = $row['token'];
             $subject = "Password Reset";
             $body = "Hii, $fname $lname. Click here to reset your password 
-            http://localhost/ShadiKarwao/reset_pass.php?token=$token ";
+http://localhost/ShadiKarwao/reset_pass.php?token=$token ";
             $sender = "From: shivlalkumarsharma30062003@rjcollege.edu.in";
 
             if(mail($email, $subject, $body, $sender)){ ?>
@@ -43,6 +51,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Recovery</title>
+    <link rel="icon" type="image/png" href="images/<?php echo $icon; ?>" />
     <link rel="stylesheet" href="sign_up.css">
 </head>
 <body>
@@ -60,7 +69,7 @@
             <div class="input" id="field6">
                 <button type="submit" name="submit" id="btn">Send Email</button>
             </div>
-            <div id="para">Already have an account ?<a href="login.php">Login</a></div>
+            <div id="para">Don't have an account ?<a href="sign_up.php">Login</a></div>
         </form>
     </section>
 </body>

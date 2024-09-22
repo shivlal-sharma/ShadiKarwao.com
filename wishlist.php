@@ -1,9 +1,17 @@
 <?php
     session_start();
-    include 'connect.php';
     if(!isset($_SESSION['fullName'])){
         header('location:login.php');
     }
+
+    include 'connect.php';
+    $icon = "";
+    $selectquery = "SELECT * FROM `navbar4`";
+    $query = mysqli_query($con, $selectquery);
+    if($query){
+        $fav_icon = mysqli_fetch_assoc($query); 
+        $icon =  $fav_icon['Image'];
+    } 
     
     $user_id = $_SESSION['user_id'];
 
@@ -33,7 +41,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="images/<?php echo $icon; ?>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="services.css">
 </head>
 <body>

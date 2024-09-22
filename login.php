@@ -5,6 +5,15 @@
         exit();
     }
 
+    include 'connect.php';
+    $icon = "";
+    $selectquery = "SELECT * FROM `navbar4`";
+    $query = mysqli_query($con, $selectquery);
+    if($query){
+        $fav_icon = mysqli_fetch_assoc($query); 
+        $icon =  $fav_icon['Image'];
+    } 
+
     $loggedIn = false;
     $incorrectPass = false;
     $invalid = false;
@@ -44,6 +53,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="icon" type="image/png" href="images/<?php echo $icon; ?>" />
     <link rel="icon" type="image/png" href="./images/logo.png">
     <link rel="stylesheet" href="sign_up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">

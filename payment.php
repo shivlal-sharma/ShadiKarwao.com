@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include 'connect.php';
     if(!isset($_SESSION['fullName'])){
         header('location:login.php');
     }
@@ -8,6 +7,15 @@
     if(!isset($_SESSION['location'])){
         header('location:services.php');
     }
+
+    include 'connect.php';
+    $icon = "";
+    $selectquery = "SELECT * FROM `navbar4`";
+    $query = mysqli_query($con, $selectquery);
+    if($query){
+        $fav_icon = mysqli_fetch_assoc($query); 
+        $icon =  $fav_icon['Image'];
+    } 
 
     $userdata = $_SESSION['userdata'];
     $locationData = $_SESSION['location'];
@@ -67,6 +75,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <link rel="icon" type="image/png" href="images/<?php echo $icon; ?>" />
     <link rel="stylesheet" href="payment.css">
 </head>
 <body>

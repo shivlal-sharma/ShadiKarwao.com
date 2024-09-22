@@ -1,11 +1,18 @@
 <?php
     session_start();
-    include 'connect.php';
     if(!isset($_SESSION['FullName'])){
         header('location:login_admin.php');
     }
 
     include 'connect.php';
+    $icon = "";
+    $selectquery = "SELECT * FROM `navbar4`";
+    $query = mysqli_query($con, $selectquery);
+    if($query){
+        $fav_icon = mysqli_fetch_assoc($query); 
+        $icon =  $fav_icon['Image'];
+    } 
+
     if(isset($_POST['submit'])){
         $payment_id = $_POST['payment_id'];
         $user_id = $_POST['user_id'];
@@ -34,14 +41,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Update Booking </title>
+    <link rel="icon" type="image/png" href="images/<?php echo $icon; ?>" />
     <link rel="stylesheet" href="footer_menu_add.css">
 </head>
-
 <body>
     <?php
        $payment_id = $_GET['updateid'];
@@ -50,7 +56,6 @@
        if($result){
             $rows = mysqli_fetch_assoc($result);
     ?>
-
                 <section id="container">
                     <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
                         <h2>Update Booking</h2>
@@ -97,6 +102,5 @@
                     </form>
                 </section>
                 <?php } ?>
-          
 </body>
 </html>

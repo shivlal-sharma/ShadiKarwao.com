@@ -3,6 +3,15 @@
     if(!isset($_SESSION['FullName'])){
         header('location:login_admin.php');
     }
+
+    include 'connect.php';
+    $icon = "";
+    $selectquery = "SELECT * FROM `navbar4`";
+    $query = mysqli_query($con, $selectquery);
+    if($query){
+        $fav_icon = mysqli_fetch_assoc($query); 
+        $icon =  $fav_icon['Image'];
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Details</title>
+    <link rel="icon" type="image/png" href="images/<?php echo $icon; ?>" />
     <style>
         #table{
             display: flex;
