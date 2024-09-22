@@ -56,7 +56,7 @@
                 if($query){
                     $subject = "Email Verification ";
                     $body = "Hii, $fname $lname. Click here to verify your email account 
-                    http://localhost/ShadiKarwao/sign_up.php?token=$token ";
+http://localhost/ShadiKarwao/sign_up.php?token=$token ";
                     $sender = "From: shivlalkumarsharma30062003@rjcollege.edu.in ";
                     if(mail($email, $subject, $body, $sender)){ 
                         $emailVerify = true;
@@ -98,7 +98,7 @@
            <?php }
 
             if($emailVerify == true){ ?>
-                <span id="success">Verify your Email account...<b onclick="remove(this)">&times;</b></span>
+                <span id="success">Verify your Email...<b onclick="remove(this)">&times;</b></span>
            <?php }
 
             if($emailFail == true){ ?>
