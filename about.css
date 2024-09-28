@@ -2,12 +2,19 @@ html{
     scroll-behavior: smooth;
 }
 
+body{
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #container {
     margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 10px;
+    padding: 60px 10px;
     background-color: #ff8500;
 }
 
@@ -22,8 +29,8 @@ html{
 }
 
 #content{
-    width: 40vw;
-    margin: 15px;
+    width: 50vw;
+    margin: 20px;
     text-align: justify;
     text-indent: 50px;
     color: #fff;
@@ -34,7 +41,7 @@ html{
     flex-direction: column;
     justify-content: center;
     background-color: #2d9ce8;
-    padding: 10px 0px;
+    padding: 30px 0px;
 }
 
 #container2 h2 {
@@ -77,6 +84,7 @@ html{
 footer {
     background-color: #303030;
     color: #ffffff;
+    padding: 20px 0px;
 }
 
 #Boxxx {
@@ -92,10 +100,6 @@ footer {
 
 #box6 {
     width: 240px;
-}
-
-.box4 h2 {
-    margin: 5px 0px;
 }
 
 #menu {
@@ -164,13 +168,13 @@ footer {
 
 footer p {
     text-align: center;
-    background: #2c313ac2;
-    color: #00ffd0;
+    background: #474747;
+    color: #00ffea;
     padding: 5px 0px;
 }
 
 /* responsive for container1 */
-@media (max-width:650px){
+@media (max-width:750px){
     #container{
         flex-direction: column;
     }
@@ -180,7 +184,7 @@ footer p {
     }
 
     #content{
-        width: 80vw;
+        width: 90vw;
     }
 }
 
