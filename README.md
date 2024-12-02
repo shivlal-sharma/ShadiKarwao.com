@@ -40,7 +40,7 @@ The admin can manage all aspects of the platform:
 ### Prerequisites
 
 Ensure you have the following installed:
-- Apache server (XAMPP/WAMP)
+- Apache server (XAMPP)
 - PHP
 - MySQL
 - Code editor (e.g., VSCode)
