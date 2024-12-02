@@ -92,6 +92,6 @@
     <h1>404 Not Found</h1>
     <p>Oops! The page you are looking for was not found.</p>
     <p>It seems we can’t find what you’re looking for.</p>
-    <a href="home.php" class="button">Go to Homepage</a>
+    <a href="http://localhost/ShadiKarwao/home.php" class="button">Go to Homepage</a>
 </body>
 </html>
