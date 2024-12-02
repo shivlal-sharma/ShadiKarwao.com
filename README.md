@@ -14,9 +14,12 @@ Shadi Karwao is a comprehensive web application designed for booking wedding loc
 - **Wishlist Page**: Users can save their favorite locations for future reference and view details on the location page.
 - **Login, Register, and Forget Password Pages**: Secure authentication for users.
 - **Location Booking**: Users can select a wedding location, proceed to payment, and confirm their booking.
-- **Payment Gateway**: Users can make secure payments for location bookings.
+- **Payment Page**: Users can make secure payments for location bookings.
 - **Payment Done Page**: Displays booking details after successful payment.
 - **Invoice Generation**: Users can generate a PDF invoice containing transaction details, the booked location, and transaction ID.
+- **Login**: Secure user login to access the platform.
+- **Register**: Users can create a new account and receive an email for verification.
+- **Forgot Password**: Users can reset their password by receiving a reset link via email.
 
 ### Admin Dashboard
 
@@ -28,6 +31,15 @@ The admin can manage all aspects of the platform:
 - **Home Page Content Management**: Admin can edit the content displayed on the home page.
 - **User Management**: Admin has control over user accounts and bookings.
 - **Payment Management**: Admin can monitor and manage payments made by users.
+- **Admin Management**: Admin has control over admin accounts.
+- **Login**: Secure admin login to access the dashboard.
+- **Forgot Password**: Admins can reset their password by receiving a reset link via email.
+
+### Additional Features:
+
+- **Email Notifications**:
+  - **Password Reset**: Users and admins receive an email with a reset link if their email is valid.
+  - **Email Verification**: New users receive an email to verify their email address upon registration.
 
 ## Tech Stack
 
