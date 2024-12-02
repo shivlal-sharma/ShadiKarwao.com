@@ -8,6 +8,8 @@
         $fav_icon = mysqli_fetch_assoc($query); 
         $icon =  $fav_icon['Image'];
     } 
+
+    $is_logged_in = isset($_SESSION['fullName']);
 ?>
 
 <!DOCTYPE html>
@@ -64,20 +66,29 @@
     <script>
         $(document).ready(function() {
             const wishlist = JSON.parse(localStorage.getItem('wishlist')) || {};
+            const isLoggedIn = <?php echo json_encode($is_logged_in); ?>;
 
-            $('.heart').each(function(){
-                const heart = $(this);
-                const locationId = heart.data('location-id');
+            if(isLoggedIn){
+                $('.heart').each(function(){
+                    const heart = $(this);
+                    const locationId = heart.data('location-id');
 
-                if(wishlist[locationId]){
-                    heart.addClass('active');
-                }
-                else{
-                    heart.removeClass('active');
-                }
-            });
+                    if(wishlist[locationId]){
+                        heart.addClass('active');
+                    }
+                    else{
+                        heart.removeClass('active');
+                    }
+                });
+            }
 
             $('.heart').click(function() {
+
+                if (!isLoggedIn) {
+                    window.location.href = 'login.php';
+                    return;
+                }
+
                 const heart = $(this);
                 const locationId = heart.data('location-id');
                 const action = heart.hasClass('active') ? 'remove' : 'add';
