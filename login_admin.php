@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(isset($_SESSION['FullName'])){
+        header('location:dashboard.php');
+    }
+
     include 'connect.php';
     $icon = "";
     $selectquery = "SELECT * FROM `navbar4`";
