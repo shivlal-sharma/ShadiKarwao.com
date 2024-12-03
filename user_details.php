@@ -39,7 +39,7 @@
     </nav>
     <?php
         include 'connect.php';
-        $sql = "SELECT * FROM `registration1` WHERE `Status`='active'";
+        $sql = "SELECT * FROM `registration1`";
         $result = mysqli_query($con, $sql);
         if(mysqli_num_rows($result) > 0){
             echo "<table>

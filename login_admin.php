@@ -23,6 +23,7 @@
         if($num_rows > 0){
             $row = mysqli_fetch_assoc($query);
             $_SESSION['FullName'] = $row['FirstName'].' '.$row['LastName'];
+            $_SESSION['admin_id'] = $row['Sr_No'];
             $hash = $row['Password'];
             $pass_verify = password_verify($password, $hash);
             if($pass_verify){ ?>

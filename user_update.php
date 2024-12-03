@@ -19,12 +19,40 @@
         $lname = mysqli_real_escape_string($con , ($_POST['lname']));
         $email = mysqli_real_escape_string($con , ($_POST['email']));
         $password = mysqli_real_escape_string($con , ($_POST['password']));
-        $cpassword = mysqli_real_escape_string($con , ($_POST['cpassword']));
-        $token = bin2hex(random_bytes(15));
         $status = mysqli_real_escape_string($con , ($_POST['status']));
 
-        if($password == $cpassword){
-            $pass_hash = password_hash($password, PASSWORD_BCRYPT);
+        // Check if email already exists and is active
+        $emailCheckQuery = "SELECT * FROM `registration1` WHERE `Email`='$email' AND `Sr_No` != $id AND `status`='active'";
+        $emailCheckResult = mysqli_query($con, $emailCheckQuery);
+
+        if (mysqli_num_rows($emailCheckResult) > 0) { ?>
+            <script>
+                alert("Email already exists.");
+            </script>
+        <?php } 
+        else {
+            $pass_hash = ""; // Initialize password hash variable
+            if (!empty($password)) {
+                // Fetch the current hashed password
+                $currentPasswordQuery = "SELECT `Password` FROM `registration1` WHERE `Sr_No`=$id";
+                $currentPasswordResult = mysqli_query($con, $currentPasswordQuery);
+                $currentPasswordRow = mysqli_fetch_assoc($currentPasswordResult);
+                $currentPasswordHash = $currentPasswordRow['Password'];
+
+                // Check if the password has changed
+                if (password_verify($password, $currentPasswordHash)) {
+                    $pass_hash = $currentPasswordHash; // Retain the current password
+                } else {
+                    $pass_hash = password_hash($password, PASSWORD_BCRYPT); // Hash the new password
+                }
+            } else {
+                // Retain the current password if no new password is entered
+                $currentPasswordQuery = "SELECT `Password` FROM `registration1` WHERE `Sr_No`=$id";
+                $currentPasswordResult = mysqli_query($con, $currentPasswordQuery);
+                $currentPasswordRow = mysqli_fetch_assoc($currentPasswordResult);
+                $pass_hash = $currentPasswordRow['Password'];
+            }
+
             $updatequery = "UPDATE `registration1` SET `Sr_No`=$id, `First_Name`='$fname', `Last_Name`='$lname', `Email`='$email', `Password`='$pass_hash', `status`='$status', `Time`=current_timestamp() WHERE `Sr_No`=$id";
             $result = mysqli_query($con, $updatequery);
             if($result){ ?>
@@ -39,13 +67,7 @@
                 </script>
             <?php }
         }
-        else{ ?>
-            <script>
-                alert("Incorrect confirm password...");
-            </script>
-        <?php }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +82,13 @@
 </head>
 <body>
     <?php
-        $id = $_GET['updateid'];
+         if (isset($_GET['updateid'])) {
+            $id = intval($_GET['updateid']);
+        } else {
+            echo "<script>location.replace('user_details.php');</script>";
+            exit;
+        }
+
         $sql = "SELECT * FROM `registration1` WHERE `Sr_No`=$id";
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_assoc($result);
@@ -70,30 +98,25 @@
             <h2>Update</h2>
             <div class="input">
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" value="<?php echo $row['First_Name']; ?>" autofocus autocomplete="off" required>
+                <input type="text" id="fname" name="fname" value="<?php echo $row['First_Name']; ?>" autofocus required>
             </div>
             <div class="input">
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" value="<?php echo $row['Last_Name']; ?>" autofocus autocomplete="off" required>
+                <input type="text" id="lname" name="lname" value="<?php echo $row['Last_Name']; ?>" autofocus required>
             </div>
             <div class="input">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?php echo $row['Email']; ?>" autofocus autocomplete="off" required>
+                <input type="email" id="email" name="email" value="<?php echo $row['Email']; ?>" autofocus required>
             </div>
             <div class="input">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="<?php echo $row['Password']; ?>" onkeyup="check1(this.value)" autofocus autocomplete="off" required>
+                <input type="password" id="password" name="password" onkeyup="check1(this.value)" autofocus>
                 <i class="fa-solid fa-eye-slash" id="eyeClose" onclick="toggle()"></i>
                 <p class="error"></p>
             </div>
             <div class="input">
-                <label for="cpassword">Confirm Password</label>
-                <input type="password" id="cpassword" name="cpassword" value="<?php echo $row['Password']; ?>" onkeyup="check2(this.value)" autofocus autocomplete="off" required>
-                <p class="error"></p>
-            </div>
-            <div class="input">
                 <label for="status">Status</label>
-                <input type="text" id="status" name="status" value="<?php echo $row['status']; ?>" autofocus autocomplete="off" required>
+                <input type="text" id="status" name="status" value="<?php echo $row['status']; ?>" autofocus required>
             </div>
             <input type="hidden" name="Sr_No" value="<?php echo $row['Sr_No']; ?>">
             <div class="input" id="field-submit">
